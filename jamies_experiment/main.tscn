@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdylj560kr38y"]
+[gd_scene load_steps=7 format=3 uid="uid://bdylj560kr38y"]
 
 [ext_resource type="PackedScene" uid="uid://5ebkyvk05h4r" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://bocmrm8uv6is5" path="res://pickup.tscn" id="2_0xm2m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -14,6 +15,8 @@ background_mode = 2
 sky = SubResource("Sky_h2yge")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_0xm2m"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -30,3 +33,14 @@ size = Vector3(26.6736, 0.145, 23.0107)
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09006, 0)
+
+[node name="Gun" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.93858, 1.01538, 0)
+
+[node name="Pickup" parent="Gun" node_paths=PackedStringArray("pickupable_node") instance=ExtResource("2_0xm2m")]
+pickupable_node = NodePath("..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Gun"]
+mesh = SubResource("BoxMesh_0xm2m")
+
+[connection signal="interact_fired" from="Player" to="Gun/Pickup" method="drop_weapon"]

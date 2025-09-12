@@ -6,10 +6,16 @@ var mouse_sensitivity: float = 0.01
 @export var vertical_look_limit: float = 0.01
 @export var camera_x_rotation: float
 @export var head: Node3D
+signal interact_fired
 
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MouseMode.MOUSE_MODE_CAPTURED
+
+
+func _process(args):
+	if Input.is_action_just_pressed("interact"):
+		interact_fired.emit()
 
 
 func _unhandled_input(event: InputEvent) -> void:
