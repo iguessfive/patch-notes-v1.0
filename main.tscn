@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://ddyxb652jax2q"]
+
+[ext_resource type="Script" uid="uid://cj0ulsldv2dco" path="res://scripts/player.gd" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://cu2ab7bp1uxvh" path="res://assets/white_1x1.png" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://mlpawikwxc4e" path="res://scripts/item_manager.gd" id="3_1bvp3"]
+[ext_resource type="Script" uid="uid://btvpmmw1w7w0v" path="res://scripts/pickup.gd" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://k30glg7vqdqf" path="res://scenes/item_slot.tscn" id="4_lquwl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lquwl"]
+radius = 32.0156
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1bvp3"]
+radius = 16.1245
+
+[node name="Main" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(488, 275)
+script = ExtResource("1_0xm2m")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+scale = Vector2(64, 64)
+texture = ExtResource("1_ig7tw")
+
+[node name="ItemManager" type="Area2D" parent="Player"]
+script = ExtResource("3_1bvp3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/ItemManager"]
+shape = SubResource("CircleShape2D_lquwl")
+
+[node name="ItemContainer" type="Node2D" parent="Player/ItemManager"]
+
+[node name="ItemSlot" parent="Player/ItemManager/ItemContainer" instance=ExtResource("4_lquwl")]
+position = Vector2(49, 0)
+
+[node name="ItemSlot2" parent="Player/ItemManager/ItemContainer" instance=ExtResource("4_lquwl")]
+position = Vector2(-60, -1)
+
+[node name="ItemSlot3" parent="Player/ItemManager/ItemContainer" instance=ExtResource("4_lquwl")]
+position = Vector2(-3, -53)
+
+[node name="Pickup" type="Area2D" parent="."]
+position = Vector2(610, 276)
+script = ExtResource("3_h2yge")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pickup"]
+modulate = Color(0, 1, 1, 1)
+scale = Vector2(32, 32)
+texture = ExtResource("1_ig7tw")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup"]
+shape = SubResource("CircleShape2D_1bvp3")
+metadata/_edit_lock_ = true
+
+[connection signal="area_entered" from="Player/ItemManager" to="Player/ItemManager" method="_on_area_entered"]
+
+[editable path="Player/ItemManager/ItemContainer/ItemSlot"]
+[editable path="Player/ItemManager/ItemContainer/ItemSlot2"]
+[editable path="Player/ItemManager/ItemContainer/ItemSlot3"]
