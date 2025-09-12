@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://ddyxb652jax2q"]
+[gd_scene load_steps=7 format=3 uid="uid://ddyxb652jax2q"]
 
 [ext_resource type="Script" uid="uid://cj0ulsldv2dco" path="res://scripts/player.gd" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://cu2ab7bp1uxvh" path="res://assets/white_1x1.png" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://mlpawikwxc4e" path="res://scripts/item_manager.gd" id="3_1bvp3"]
 [ext_resource type="Script" uid="uid://btvpmmw1w7w0v" path="res://scripts/pickup.gd" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://k30glg7vqdqf" path="res://scenes/item_slot.tscn" id="4_lquwl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lquwl"]
 radius = 32.0156
@@ -41,15 +40,6 @@ shape = SubResource("CircleShape2D_lquwl")
 
 [node name="ItemContainer" type="Node2D" parent="Player/ItemManager"]
 
-[node name="ItemSlot" parent="Player/ItemManager/ItemContainer" instance=ExtResource("4_lquwl")]
-position = Vector2(49, 0)
-
-[node name="ItemSlot2" parent="Player/ItemManager/ItemContainer" instance=ExtResource("4_lquwl")]
-position = Vector2(-60, -1)
-
-[node name="ItemSlot3" parent="Player/ItemManager/ItemContainer" instance=ExtResource("4_lquwl")]
-position = Vector2(-3, -53)
-
 [node name="Pickup" type="Area2D" parent="."]
 position = Vector2(610, 276)
 script = ExtResource("3_h2yge")
@@ -65,7 +55,3 @@ shape = SubResource("CircleShape2D_1bvp3")
 metadata/_edit_lock_ = true
 
 [connection signal="area_entered" from="Player/ItemManager" to="Player/ItemManager" method="_on_area_entered"]
-
-[editable path="Player/ItemManager/ItemContainer/ItemSlot"]
-[editable path="Player/ItemManager/ItemContainer/ItemSlot2"]
-[editable path="Player/ItemManager/ItemContainer/ItemSlot3"]

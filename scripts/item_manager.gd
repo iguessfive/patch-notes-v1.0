@@ -1,6 +1,6 @@
 extends Node2D
 
-const MAX_SLOTS = 4
+const MAX_SLOTS = 100
 
 @onready var item_container: Node2D = get_node("ItemContainer")
 
@@ -16,7 +16,7 @@ func _on_area_entered(area:Area2D) -> void:
 		return
 
 	if area.is_in_group("items"):
-		var slot_radius: float = 50
+		var slot_radius: float = randi_range(50, 150)
 		var slot := Type.ItemSlot.instantiate()
 
 		slot.item = area.item # store data
@@ -27,7 +27,7 @@ func _on_area_entered(area:Area2D) -> void:
 			var item := item_container.get_child(idx)
 			var count := item_container.get_child_count()
 			var angle := (TAU / count) * idx
-			var pos := global_position + Vector2(cos(angle), sin(angle)) * slot_radius
+			var pos = Vector2(cos(angle), sin(angle)) * slot_radius
 			item.position = pos
 
 
