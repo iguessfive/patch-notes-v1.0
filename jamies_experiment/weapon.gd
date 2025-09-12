@@ -17,8 +17,6 @@ var reload_sfx: AudioStream
 var shoot_vfx: PackedScene
 var reload_vfx: PackedScene
 var mesh: PackedScene
-var can_fire: bool = true
-var reloading: bool = false
 
 
 func _ready() -> void:
@@ -30,18 +28,15 @@ func _ready() -> void:
 func _process(delta: float):
 	var point = head_raycast.get_collision_point()
 	debug_sphere.position = point
-	if Input.is_action_pressed("fire") and can_fire and not reloading:
+	if Input.is_action_pressed("fire"):
 		fire_weapon()
 
 
 func fire_weapon():
 	shoot_timer.start()
-	shoot_timer.timeout.connect(func(): can_fire = true)
 	if shoot_sfx != null:
 		audioStreamPlayer.stream = shoot_sfx
 		audioStreamPlayer.play()
-	#do damage stuff
-	can_fire = false
 
 
 func reload_weapon():
@@ -49,8 +44,6 @@ func reload_weapon():
 	if reload_sfx != null:
 		audioStreamPlayer.stream = reload_sfx
 		audioStreamPlayer.play()
-	reloading = true
-	can_fire = false
 
 
 func init_weapon(resource: WeaponResource):
