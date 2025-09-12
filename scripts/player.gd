@@ -49,3 +49,12 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+
+func connect_weapon_knockback(pickup: Node3D):
+	pickup.connect("weapon_fired", process_weapon_knockback)
+
+
+func process_weapon_knockback(knockback: float):
+	var backward_vector_local = head.transform.basis.z * knockback
+	velocity += backward_vector_local

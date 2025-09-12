@@ -1,11 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://bdylj560kr38y"]
+[gd_scene load_steps=17 format=3 uid="uid://bdylj560kr38y"]
 
-[ext_resource type="PackedScene" uid="uid://5ebkyvk05h4r" path="res://player.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://bocmrm8uv6is5" path="res://pickup.tscn" id="2_0xm2m"]
-[ext_resource type="Script" uid="uid://fg16phduvm3d" path="res://weapon.gd" id="2_h2yge"]
-[ext_resource type="Script" uid="uid://fvo5d4tmrwux" path="res://weapon_resource.gd" id="4_272bh"]
-[ext_resource type="Resource" uid="uid://cwcmx42hj1e2v" path="res://shotgun.tres" id="5_7mycd"]
-[ext_resource type="PackedScene" uid="uid://fl2uu18m7th1" path="res://Meshes/shotgun.glb" id="5_272bh"]
+[ext_resource type="PackedScene" uid="uid://5ebkyvk05h4r" path="res://scenes/player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://27d6ocwepa3d" path="res://shotgun.tscn" id="3_o6xl0"]
+[ext_resource type="Script" uid="uid://cgjbs2s15v3kk" path="res://scripts/head.gd" id="3_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://bj565xajac335" path="res://quadrocket.tscn" id="4_tipki"]
+[ext_resource type="Script" uid="uid://dyxvt8yarxaff" path="res://addons/health_hitbox_hurtbox/3d/hurt_box_3d/basic_hurt_box_3d.gd" id="8_choun"]
+[ext_resource type="Script" uid="uid://cobp4qehnuq77" path="res://addons/health_hitbox_hurtbox/resources/health_modifier.gd" id="9_ya4ey"]
+[ext_resource type="Script" uid="uid://dr8bvnfebp76" path="res://addons/health_hitbox_hurtbox/health/health.gd" id="10_eb6dy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -20,21 +21,30 @@ sky = SubResource("Sky_h2yge")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="Resource" id="Resource_5vw27"]
-script = ExtResource("4_272bh")
-fire_rate = 0.5
-reload_time = 2.0
-damage = 25.0
-spread = 5.0
-recoil = 0.0
-knockback = 0.0
-mesh = ExtResource("5_272bh")
-metadata/_custom_type_script = "uid://fvo5d4tmrwux"
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2yge"]
 albedo_color = Color(0.952487, 0.120024, 0.204751, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_h2yge"]
+[sub_resource type="NavigationMesh" id="NavigationMesh_trceg"]
+vertices = PackedVector3Array(-12.8368, 0.4275, -11.0054, -12.8368, 0.4275, 10.9946, 12.9132, 0.4275, 10.9946, 12.9132, 0.4275, -11.0054)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="Resource" id="Resource_a8y0u"]
+script = ExtResource("9_ya4ey")
+incrementer = 0
+multiplier = 1.0
+convert_affect = 0
+convert_type = 0
+
+[sub_resource type="Resource" id="Resource_jkv2x"]
+script = ExtResource("9_ya4ey")
+incrementer = 0
+multiplier = 1.0
+convert_affect = 0
+convert_type = 0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jbj1t"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_muem4"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -45,79 +55,58 @@ environment = SubResource("Environment_1bvp3")
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-use_collision = true
-size = Vector3(26.6736, 0.145, 23.0107)
-
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09006, 0)
+collision_layer = 3
 
-[node name="Shotgun" type="Node3D" parent="." node_paths=PackedStringArray("head", "head_raycast", "debug_sphere", "shoot_timer", "reload_timer", "audioStreamPlayer")]
+[node name="Head" parent="Player" index="2" node_paths=PackedStringArray("camera")]
+script = ExtResource("3_ya4ey")
+camera = NodePath("Camera3D")
+
+[node name="Shotgun" parent="." node_paths=PackedStringArray("head_raycast") instance=ExtResource("3_o6xl0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.93798, 0.810496, -3.06818)
-script = ExtResource("2_h2yge")
-head = NodePath("../Player/Head")
 head_raycast = NodePath("../Player/Head/RayCast3D")
-debug_sphere = NodePath("../CSGSphere3D")
-weapon_resource = ExtResource("5_7mycd")
-shoot_timer = NodePath("Timer")
-reload_timer = NodePath("Timer2")
-audioStreamPlayer = NodePath("AudioStreamPlayer3D")
 
-[node name="Pickup" parent="Shotgun" node_paths=PackedStringArray("pickupable_node") instance=ExtResource("2_0xm2m")]
-pickupable_node = NodePath("..")
-
-[node name="Timer" type="Timer" parent="Shotgun"]
-
-[node name="Timer2" type="Timer" parent="Shotgun"]
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Shotgun"]
-
-[node name="Shotgun2" type="Node3D" parent="." node_paths=PackedStringArray("head", "head_raycast", "debug_sphere", "shoot_timer", "reload_timer", "audioStreamPlayer")]
+[node name="quadrocket" parent="." node_paths=PackedStringArray("head_raycast") instance=ExtResource("4_tipki")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.93798, 0.810496, 0.946431)
-script = ExtResource("2_h2yge")
-head = NodePath("../Player/Head")
 head_raycast = NodePath("../Player/Head/RayCast3D")
-debug_sphere = NodePath("../CSGSphere3D")
-weapon_resource = SubResource("Resource_5vw27")
-shoot_timer = NodePath("Timer")
-reload_timer = NodePath("Timer2")
-audioStreamPlayer = NodePath("AudioStreamPlayer3D")
-
-[node name="Pickup" parent="Shotgun2" node_paths=PackedStringArray("pickupable_node") instance=ExtResource("2_0xm2m")]
-pickupable_node = NodePath("..")
-
-[node name="Timer" type="Timer" parent="Shotgun2"]
-
-[node name="Timer2" type="Timer" parent="Shotgun2"]
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Shotgun2"]
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
 radius = 0.026
 material = SubResource("StandardMaterial3D_h2yge")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_trceg")
 
-[node name="Label" type="Label" parent="Control"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "interact [f]"
-label_settings = SubResource("LabelSettings_h2yge")
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D"]
+use_collision = true
+size = Vector3(26.6736, 0.145, 23.0107)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28143, 1.2597, 4.40327)
+
+[node name="BasicHurtBox3D" type="Area3D" parent="CharacterBody3D" node_paths=PackedStringArray("health")]
+script = ExtResource("8_choun")
+health = NodePath("Health")
+modifiers = Dictionary[int, ExtResource("9_ya4ey")]({
+1: SubResource("Resource_jkv2x"),
+2: SubResource("Resource_a8y0u")
+})
+metadata/_custom_type_script = "uid://dyxvt8yarxaff"
+
+[node name="Health" type="Node" parent="CharacterBody3D/BasicHurtBox3D"]
+script = ExtResource("10_eb6dy")
+metadata/_custom_type_script = "uid://dr8bvnfebp76"
+
+[node name="HurtBox" type="CollisionShape3D" parent="CharacterBody3D/BasicHurtBox3D"]
+shape = SubResource("CapsuleShape3D_jbj1t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("CapsuleMesh_muem4")
+
+[node name="EnemyCollision" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_jbj1t")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="CharacterBody3D"]
 
 [editable path="Player"]
-[editable path="Shotgun/Pickup"]
-[editable path="Shotgun2/Pickup"]
