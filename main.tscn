@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddyxb652jax2q"]
+[gd_scene load_steps=9 format=3 uid="uid://ddyxb652jax2q"]
 
 [ext_resource type="Script" uid="uid://cj0ulsldv2dco" path="res://scripts/player.gd" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://cu2ab7bp1uxvh" path="res://assets/white_1x1.png" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://mlpawikwxc4e" path="res://scripts/item_manager.gd" id="3_1bvp3"]
 [ext_resource type="Script" uid="uid://btvpmmw1w7w0v" path="res://scripts/pickup.gd" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://brekvrl65k65t" path="res://scenes/pickup.tscn" id="5_7mycd"]
+[ext_resource type="Script" uid="uid://bqni57kmj7n82" path="res://scripts/weapon.gd" id="5_272bh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lquwl"]
 radius = 32.0156
@@ -39,18 +41,114 @@ script = ExtResource("3_1bvp3")
 shape = SubResource("CircleShape2D_lquwl")
 
 [node name="ItemContainer" type="Node2D" parent="Player/ItemManager"]
+position = Vector2(4, 0)
 
-[node name="Pickup" type="Area2D" parent="."]
+[node name="Pickup" parent="." instance=ExtResource("5_7mycd")]
 position = Vector2(610, 276)
-script = ExtResource("3_h2yge")
+item = ExtResource("5_272bh")
 
-[node name="Sprite2D" type="Sprite2D" parent="Pickup"]
+[node name="Pickup2" type="Area2D" parent="."]
+position = Vector2(268, 345)
+script = ExtResource("3_h2yge")
+item = ExtResource("5_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pickup2"]
 modulate = Color(0, 1, 1, 1)
 scale = Vector2(32, 32)
 texture = ExtResource("1_ig7tw")
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup2"]
+shape = SubResource("CircleShape2D_1bvp3")
+metadata/_edit_lock_ = true
+
+[node name="Pickup3" type="Area2D" parent="."]
+position = Vector2(719, 420)
+script = ExtResource("3_h2yge")
+item = ExtResource("5_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pickup3"]
+modulate = Color(0, 1, 1, 1)
+scale = Vector2(32, 32)
+texture = ExtResource("1_ig7tw")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup3"]
+shape = SubResource("CircleShape2D_1bvp3")
+metadata/_edit_lock_ = true
+
+[node name="Pickup4" type="Area2D" parent="."]
+position = Vector2(844, 135)
+script = ExtResource("3_h2yge")
+item = ExtResource("5_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pickup4"]
+modulate = Color(0, 1, 1, 1)
+scale = Vector2(32, 32)
+texture = ExtResource("1_ig7tw")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup4"]
+shape = SubResource("CircleShape2D_1bvp3")
+metadata/_edit_lock_ = true
+
+[node name="Pickup5" type="Area2D" parent="."]
+position = Vector2(255, 108)
+script = ExtResource("3_h2yge")
+item = ExtResource("5_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pickup5"]
+modulate = Color(0, 1, 1, 1)
+scale = Vector2(32, 32)
+texture = ExtResource("1_ig7tw")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup5"]
+shape = SubResource("CircleShape2D_1bvp3")
+metadata/_edit_lock_ = true
+
+[node name="Pickup6" type="Area2D" parent="."]
+position = Vector2(490, 506)
+script = ExtResource("3_h2yge")
+item = ExtResource("5_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pickup6"]
+modulate = Color(0, 1, 1, 1)
+scale = Vector2(32, 32)
+texture = ExtResource("1_ig7tw")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup6"]
+shape = SubResource("CircleShape2D_1bvp3")
+metadata/_edit_lock_ = true
+
+[node name="Pickup7" type="Area2D" parent="."]
+position = Vector2(981, 337)
+script = ExtResource("3_h2yge")
+item = ExtResource("5_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pickup7"]
+modulate = Color(0, 1, 1, 1)
+scale = Vector2(32, 32)
+texture = ExtResource("1_ig7tw")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup7"]
+shape = SubResource("CircleShape2D_1bvp3")
+metadata/_edit_lock_ = true
+
+[node name="Pickup8" type="Area2D" parent="."]
+position = Vector2(576, 95)
+script = ExtResource("3_h2yge")
+item = ExtResource("5_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pickup8"]
+modulate = Color(0, 1, 1, 1)
+scale = Vector2(32, 32)
+texture = ExtResource("1_ig7tw")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup8"]
 shape = SubResource("CircleShape2D_1bvp3")
 metadata/_edit_lock_ = true
 
