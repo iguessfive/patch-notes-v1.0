@@ -3,8 +3,8 @@ extends Node3D
 @export var head: Node3D
 @export var head_raycast: RayCast3D
 @export var debug_sphere: CSGSphere3D
-@export var weapon_resource: WeaponResource:
-	set = init_weapon
+@export var weapon_resource: WeaponResource
+# set = init_weapon
 @export var shoot_timer: Timer
 @export var reload_timer: Timer
 @export var audioStreamPlayer: AudioStreamPlayer3D
@@ -20,6 +20,7 @@ var mesh: PackedScene
 
 
 func _ready() -> void:
+	init_weapon(weapon_resource)
 	var tmpmesh = mesh.instantiate()
 	add_child(tmpmesh)
 	tmpmesh.rotation_degrees.y = 90
@@ -37,6 +38,7 @@ func fire_weapon():
 		audioStreamPlayer.play()
 	var point = head_raycast.get_collision_point()
 	debug_sphere.position = point
+	print("gun shot, cooldown started")
 
 
 func reload_weapon():
@@ -44,6 +46,7 @@ func reload_weapon():
 	if reload_sfx != null:
 		audioStreamPlayer.stream = reload_sfx
 		audioStreamPlayer.play()
+	print("gun reloaded, cooldown started")
 
 
 func init_weapon(resource: WeaponResource):
@@ -56,5 +59,5 @@ func init_weapon(resource: WeaponResource):
 	reload_vfx = resource.reload_vfx
 	reload_vfx = resource.reload_vfx
 	mesh = resource.mesh
-	# shoot_timer.wait_time = resource.fire_rate
-	# reload_timer.wait_time = resource.reload_time
+	shoot_timer.wait_time = resource.fire_rate
+	reload_timer.wait_time = resource.reload_time
