@@ -8,6 +8,11 @@ func _ready() -> void:
 	body_entered.connect(pickup_weapon)
 
 
+# for later.
+func display_pickup_ui():
+	pass
+
+
 func pickup_weapon(body: Node3D):
 	# move to the players gun point and parent ourselves to that.
 	var mountpoint = body.get_node_or_null("Head/GunMountPoint")
