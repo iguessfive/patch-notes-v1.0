@@ -26,8 +26,6 @@ func _ready() -> void:
 
 
 func _process(delta: float):
-	var point = head_raycast.get_collision_point()
-	debug_sphere.position = point
 	if Input.is_action_pressed("fire"):
 		fire_weapon()
 
@@ -37,6 +35,8 @@ func fire_weapon():
 	if shoot_sfx != null:
 		audioStreamPlayer.stream = shoot_sfx
 		audioStreamPlayer.play()
+	var point = head_raycast.get_collision_point()
+	debug_sphere.position = point
 
 
 func reload_weapon():
@@ -56,5 +56,5 @@ func init_weapon(resource: WeaponResource):
 	reload_vfx = resource.reload_vfx
 	reload_vfx = resource.reload_vfx
 	mesh = resource.mesh
-	shoot_timer.wait_time = weapon_resource.fire_rate
-	reload_timer.wait_time = weapon_resource.reload_time
+	# shoot_timer.wait_time = resource.fire_rate
+	# reload_timer.wait_time = resource.reload_time

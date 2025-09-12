@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bdylj560kr38y"]
+[gd_scene load_steps=13 format=3 uid="uid://bdylj560kr38y"]
 
 [ext_resource type="PackedScene" uid="uid://5ebkyvk05h4r" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://bocmrm8uv6is5" path="res://pickup.tscn" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://fg16phduvm3d" path="res://weapon.gd" id="2_h2yge"]
-[ext_resource type="Resource" uid="uid://cg8xeg6114rfi" path="res://launcher.tres" id="3_lquwl"]
+[ext_resource type="Script" uid="uid://fvo5d4tmrwux" path="res://weapon_resource.gd" id="4_272bh"]
 [ext_resource type="Resource" uid="uid://cwcmx42hj1e2v" path="res://shotgun.tres" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://fl2uu18m7th1" path="res://Meshes/shotgun.glb" id="5_272bh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -18,6 +19,17 @@ background_mode = 2
 sky = SubResource("Sky_h2yge")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="Resource" id="Resource_5vw27"]
+script = ExtResource("4_272bh")
+fire_rate = 0.5
+reload_time = 2.0
+damage = 25.0
+spread = 5.0
+recoil = 0.0
+knockback = 0.0
+mesh = ExtResource("5_272bh")
+metadata/_custom_type_script = "uid://fvo5d4tmrwux"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2yge"]
 albedo_color = Color(0.952487, 0.120024, 0.204751, 1)
@@ -40,39 +52,45 @@ size = Vector3(26.6736, 0.145, 23.0107)
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09006, 0)
 
-[node name="Gun" type="Node3D" parent="." node_paths=PackedStringArray("head", "head_raycast", "debug_sphere", "timer", "audioStreamPlayer")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.93858, 0.792769, 1.26583)
-script = ExtResource("2_h2yge")
-head = NodePath("../Player/Head")
-head_raycast = NodePath("../Player/Head/RayCast3D")
-debug_sphere = NodePath("../CSGSphere3D")
-weapon_resource = ExtResource("3_lquwl")
-timer = NodePath("Timer")
-audioStreamPlayer = NodePath("AudioStreamPlayer3D")
-
-[node name="Pickup" parent="Gun" node_paths=PackedStringArray("pickupable_node") instance=ExtResource("2_0xm2m")]
-pickupable_node = NodePath("..")
-
-[node name="Timer" type="Timer" parent="Gun"]
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Gun"]
-
-[node name="Gun2" type="Node3D" parent="." node_paths=PackedStringArray("head", "head_raycast", "debug_sphere", "timer", "audioStreamPlayer")]
+[node name="Shotgun" type="Node3D" parent="." node_paths=PackedStringArray("head", "head_raycast", "debug_sphere", "shoot_timer", "reload_timer", "audioStreamPlayer")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.93798, 0.810496, -3.06818)
 script = ExtResource("2_h2yge")
 head = NodePath("../Player/Head")
 head_raycast = NodePath("../Player/Head/RayCast3D")
 debug_sphere = NodePath("../CSGSphere3D")
 weapon_resource = ExtResource("5_7mycd")
-timer = NodePath("Timer")
+shoot_timer = NodePath("Timer")
+reload_timer = NodePath("Timer2")
 audioStreamPlayer = NodePath("AudioStreamPlayer3D")
 
-[node name="Pickup" parent="Gun2" node_paths=PackedStringArray("pickupable_node") instance=ExtResource("2_0xm2m")]
+[node name="Pickup" parent="Shotgun" node_paths=PackedStringArray("pickupable_node") instance=ExtResource("2_0xm2m")]
 pickupable_node = NodePath("..")
 
-[node name="Timer" type="Timer" parent="Gun2"]
+[node name="Timer" type="Timer" parent="Shotgun"]
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Gun2"]
+[node name="Timer2" type="Timer" parent="Shotgun"]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Shotgun"]
+
+[node name="Shotgun2" type="Node3D" parent="." node_paths=PackedStringArray("head", "head_raycast", "debug_sphere", "shoot_timer", "reload_timer", "audioStreamPlayer")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.93798, 0.810496, 0.946431)
+script = ExtResource("2_h2yge")
+head = NodePath("../Player/Head")
+head_raycast = NodePath("../Player/Head/RayCast3D")
+debug_sphere = NodePath("../CSGSphere3D")
+weapon_resource = SubResource("Resource_5vw27")
+shoot_timer = NodePath("Timer")
+reload_timer = NodePath("Timer2")
+audioStreamPlayer = NodePath("AudioStreamPlayer3D")
+
+[node name="Pickup" parent="Shotgun2" node_paths=PackedStringArray("pickupable_node") instance=ExtResource("2_0xm2m")]
+pickupable_node = NodePath("..")
+
+[node name="Timer" type="Timer" parent="Shotgun2"]
+
+[node name="Timer2" type="Timer" parent="Shotgun2"]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Shotgun2"]
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
 radius = 0.026
@@ -100,8 +118,6 @@ label_settings = SubResource("LabelSettings_h2yge")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="interact_fired" from="Player" to="Gun/Pickup" method="drop_weapon"]
-
 [editable path="Player"]
-[editable path="Gun/Pickup"]
-[editable path="Gun2/Pickup"]
+[editable path="Shotgun/Pickup"]
+[editable path="Shotgun2/Pickup"]
