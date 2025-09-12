@@ -14,13 +14,14 @@ func display_pickup_ui():
 
 
 func pickup_weapon(body: Node3D):
-	# move to the players gun point and parent ourselves to that.
-	var mountpoint = body.get_node_or_null("Head/GunMountPoint")
-	if mountpoint == null:
-		push_error("something is wrong where is your gunpoint")
-	pickupable_node.position = Vector3.ZERO
-	pickupable_node.call_deferred("reparent", mountpoint, false)
-	monitoring = false
+	if body.name == "Player":
+		# move to the players gun point and parent ourselves to that.
+		var mountpoint = body.get_node_or_null("Head/GunMountPoint")
+		if mountpoint == null:
+			push_error("something is wrong where is your gunpoint")
+		pickupable_node.position = Vector3.ZERO
+		pickupable_node.call_deferred("reparent", mountpoint, false)
+		monitoring = false
 
 
 func drop_weapon():

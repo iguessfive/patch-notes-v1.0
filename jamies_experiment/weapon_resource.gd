@@ -11,3 +11,4 @@ extends Resource
 @export var reload_sfx: AudioStream
 @export var reload_vfx: PackedScene
 @export var shoot_vfx: PackedScene
+@export var mesh: PackedScene

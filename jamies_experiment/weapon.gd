@@ -5,11 +5,10 @@ extends Node3D
 @export var debug_sphere: CSGSphere3D
 @export var weapon_resource: WeaponResource:
 	set = init_weapon
-@export var timer: Timer
+@export var shoot_timer: Timer
+@export var reload_timer: Timer
 @export var audioStreamPlayer: AudioStreamPlayer3D
 var damage: float
-var fire_rate: float
-var reload_time: float
 var spread: float
 var recoil: float
 var knockback: float
@@ -17,26 +16,45 @@ var shoot_sfx: AudioStream
 var reload_sfx: AudioStream
 var shoot_vfx: PackedScene
 var reload_vfx: PackedScene
+var mesh: PackedScene
+var can_fire: bool = true
+var reloading: bool = false
+
+
+func _ready() -> void:
+	var tmpmesh = mesh.instantiate()
+	add_child(tmpmesh)
+	tmpmesh.rotation_degrees.y = 90
+
+
+func _process(delta: float):
+	var point = head_raycast.get_collision_point()
+	debug_sphere.position = point
+	if Input.is_action_pressed("fire") and can_fire and not reloading:
+		fire_weapon()
 
 
 func fire_weapon():
-	timer.wait_time = weapon_resource.fire_rate
-	timer.start()
-	audioStreamPlayer.stream = shoot_sfx
-	audioStreamPlayer.play()
+	shoot_timer.start()
+	shoot_timer.timeout.connect(func(): can_fire = true)
+	if shoot_sfx != null:
+		audioStreamPlayer.stream = shoot_sfx
+		audioStreamPlayer.play()
+	#do damage stuff
+	can_fire = false
 
 
 func reload_weapon():
-	timer.wait_time = weapon_resource.reload_time
-	timer.start()
-	audioStreamPlayer.stream = reload_sfx
-	audioStreamPlayer.play()
+	reload_timer.start()
+	if reload_sfx != null:
+		audioStreamPlayer.stream = reload_sfx
+		audioStreamPlayer.play()
+	reloading = true
+	can_fire = false
 
 
 func init_weapon(resource: WeaponResource):
-	fire_rate = resource.fire_rate
 	damage = resource.damage
-	reload_time = resource.reload_time
 	spread = resource.spread
 	recoil = resource.recoil
 	knockback = resource.knockback
@@ -44,8 +62,6 @@ func init_weapon(resource: WeaponResource):
 	shoot_sfx = resource.shoot_sfx
 	reload_vfx = resource.reload_vfx
 	reload_vfx = resource.reload_vfx
-
-
-func _process(_delta):
-	var point = head_raycast.get_collision_point()
-	debug_sphere.position = point
+	mesh = resource.mesh
+	shoot_timer.wait_time = weapon_resource.fire_rate
+	reload_timer.wait_time = weapon_resource.reload_time
