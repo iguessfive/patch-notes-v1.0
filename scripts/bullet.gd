@@ -1,4 +1,4 @@
-extends Area2D
+extends HitBox2D
 
 var speed: float = 600.0
 var direction := Vector2.RIGHT
@@ -7,6 +7,9 @@ var distance_max: float = 1000.0
 var distance_traveled: float = 0.0
 
 @onready var sprite = get_node("Sprite2D")
+
+func _ready() -> void:
+	hit.connect(_on_hit)
 
 func _physics_process(delta: float) -> void:
 	position += speed * direction * delta
@@ -17,3 +20,9 @@ func _physics_process(delta: float) -> void:
 
 func destroy() -> void:
 	queue_free()
+
+@warning_ignore("unused_parameter")
+func _on_hit(area: HurtBox2D) -> void:
+	# Bullet VFX & SFX
+
+	destroy()
