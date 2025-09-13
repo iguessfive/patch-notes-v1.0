@@ -1,3 +1,4 @@
+@tool
 @icon("res://assets/icons/hurt_box.png")
 class_name HurtBox2D extends Area2D
 

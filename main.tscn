@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://ddyxb652jax2q"]
+[gd_scene load_steps=10 format=3 uid="uid://ddyxb652jax2q"]
 
 [ext_resource type="Script" uid="uid://cj0ulsldv2dco" path="res://scripts/player.gd" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://cu2ab7bp1uxvh" path="res://assets/white_1x1.png" id="1_ig7tw"]
-[ext_resource type="Script" uid="uid://mlpawikwxc4e" path="res://scripts/item_manager.gd" id="3_1bvp3"]
+[ext_resource type="Script" path="res://scripts/item_manager.gd" id="3_1bvp3"]
+[ext_resource type="Script" uid="uid://clckohu8uowgi" path="res://scripts/hit_box_2d.gd" id="4_5vw27"]
 [ext_resource type="PackedScene" uid="uid://brekvrl65k65t" path="res://scenes/pickup.tscn" id="5_7mycd"]
 [ext_resource type="Script" uid="uid://bqni57kmj7n82" path="res://scripts/weapon.gd" id="5_272bh"]
 [ext_resource type="Script" uid="uid://fvwvnsrsqowf" path="res://scripts/mob.gd" id="6_7mycd"]
+[ext_resource type="Script" uid="uid://dusbfshhlreyh" path="res://scripts/hurt_box_2d.gd" id="7_272bh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lquwl"]
 radius = 32.0156
@@ -40,6 +42,11 @@ shape = SubResource("CircleShape2D_lquwl")
 [node name="ItemContainer" type="Node2D" parent="Player/ItemManager"]
 position = Vector2(4, 0)
 
+[node name="HitBox2D" type="Area2D" parent="Player"]
+collision_mask = 2
+script = ExtResource("4_5vw27")
+metadata/_custom_type_script = "uid://clckohu8uowgi"
+
 [node name="Pickup" parent="." instance=ExtResource("5_7mycd")]
 position = Vector2(610, 276)
 item = ExtResource("5_272bh")
@@ -53,5 +60,12 @@ modulate = Color(1, 1, 0, 1)
 scale = Vector2(64, 64)
 texture = ExtResource("1_ig7tw")
 metadata/_edit_lock_ = true
+
+[node name="HurtBox2D" type="Area2D" parent="Mob"]
+collision_layer = 2
+script = ExtResource("7_272bh")
+source = 2
+target = 1
+metadata/_custom_type_script = "uid://dusbfshhlreyh"
 
 [connection signal="area_entered" from="Player/ItemManager" to="Player/ItemManager" method="_on_area_entered"]

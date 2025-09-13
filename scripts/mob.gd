@@ -34,4 +34,3 @@ func chase_anim() -> void:
 	tween.tween_property($Sprite2D, "modulate:a", 1, 1)
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_loops()
-

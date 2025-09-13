@@ -14,6 +14,3 @@ func _process(delta: float) -> void:
 	velocity = direction * 200.0
 	
 	move_and_slide()
-
-
-

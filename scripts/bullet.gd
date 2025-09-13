@@ -1,3 +1,4 @@
+@tool
 extends HitBox2D
 
 var speed: float = 600.0

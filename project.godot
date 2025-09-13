@@ -15,6 +15,11 @@ run/main_scene="uid://ddyxb652jax2q"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="mob"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

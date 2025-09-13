@@ -1,3 +1,4 @@
+@tool
 @icon("res://assets/icons/hit_box.png")
 class_name HitBox2D extends Area2D
 
@@ -24,6 +25,3 @@ func set_source(new_value: int) -> void:
 func set_target(new_value: int) -> void:
 	target = new_value
 	collision_mask = target
-
-# ------------------- HitBox -------------------
-# ------------------- HurtBox -------------------
