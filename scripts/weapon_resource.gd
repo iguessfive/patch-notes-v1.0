@@ -1,7 +1,7 @@
 extends Resource
 
-@export var bullet_speed: float = 1000.0 # in pixels per second
-@export var fire_rate: float = 1.0
+@export var bullet_speed: float = 1000.0 # pixels per second
+@export var fire_rate: float = 1.0 # bullet per second
 
 # @export var reload_time: float
 # @export var damage: float
