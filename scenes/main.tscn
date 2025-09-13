@@ -1,22 +1,18 @@
-[gd_scene load_steps=31 format=3 uid="uid://bdylj560kr38y"]
+[gd_scene load_steps=25 format=3 uid="uid://bdylj560kr38y"]
 
 [ext_resource type="PackedScene" uid="uid://5ebkyvk05h4r" path="res://scenes/player.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://27d6ocwepa3d" path="res://shotgun.tscn" id="3_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://27d6ocwepa3d" path="res://scenes/shotgun.tscn" id="3_o6xl0"]
 [ext_resource type="Script" uid="uid://cgjbs2s15v3kk" path="res://scripts/head.gd" id="3_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://fl2uu18m7th1" path="res://Meshes/shotgun.glb" id="4_choun"]
-[ext_resource type="PackedScene" uid="uid://bj565xajac335" path="res://quadrocket.tscn" id="4_tipki"]
+[ext_resource type="PackedScene" uid="uid://bj565xajac335" path="res://scenes/quadrocket.tscn" id="4_tipki"]
 [ext_resource type="PackedScene" uid="uid://b82omtm5oqhk4" path="res://Meshes/mac10.glb" id="5_85g3d"]
 [ext_resource type="Script" uid="uid://cfurin55v4u2g" path="res://scripts/weapon_resource.gd" id="6_choun"]
 [ext_resource type="PackedScene" uid="uid://cxl182ocgxt71" path="res://Meshes/quadrocket.glb" id="7_jkv2x"]
-[ext_resource type="PackedScene" uid="uid://plc7bfuy7rfc" path="res://pistol.tscn" id="7_trceg"]
-[ext_resource type="PackedScene" uid="uid://b71quq7ek2x6v" path="res://mac_10.tscn" id="8_a8y0u"]
+[ext_resource type="PackedScene" uid="uid://plc7bfuy7rfc" path="res://scenes/pistol.tscn" id="7_trceg"]
+[ext_resource type="PackedScene" uid="uid://b71quq7ek2x6v" path="res://scenes/mac_10.tscn" id="8_a8y0u"]
 [ext_resource type="Texture2D" uid="uid://wieqjuscswvh" path="res://addons/prototype_mini_bundle/prototype_dark.png" id="8_trceg"]
-[ext_resource type="Material" uid="uid://q53ar7qykmp5" path="res://Material/liquid_in_mesh.tres" id="9_eb6dy"]
-[ext_resource type="Script" uid="uid://daeycu1gfn8wy" path="res://scripts/health.gd" id="9_ya4ey"]
-[ext_resource type="PackedScene" uid="uid://0vmntyr615js" path="res://addons/prototype_mini_bundle/prop_cube.tscn" id="12_a8y0u"]
-[ext_resource type="Script" uid="uid://dsijcj845eum2" path="res://scripts/enemy.gd" id="12_jbj1t"]
-[ext_resource type="Texture2D" uid="uid://dj7d77ksm7a6t" path="res://addons/prototype_mini_bundle/prototype_blue.png" id="13_jkv2x"]
-[ext_resource type="Script" uid="uid://3eyukow4lkwm" path="res://scenes/healthbridge.gd" id="14_muem4"]
+[ext_resource type="PackedScene" uid="uid://d1l6mhwee56gf" path="res://scenes/enemy.tscn" id="11_eb6dy"]
+[ext_resource type="Script" uid="uid://b5lm8coo5klll" path="res://scripts/spawner.gd" id="12_trceg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -90,20 +86,19 @@ metadata/_custom_type_script = "uid://cfurin55v4u2g"
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2yge"]
 albedo_color = Color(0.952487, 0.120024, 0.204751, 1)
 
-[sub_resource type="NavigationMesh" id="NavigationMesh_trceg"]
-vertices = PackedVector3Array(-12.8368, 0.4275, -11.0054, -12.8368, 0.4275, 10.9946, 12.9132, 0.4275, 10.9946, 12.9132, 0.4275, -11.0054)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+[sub_resource type="Curve3D" id="Curve3D_trceg"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 13.46, 0, -11.695, 0, 0, 0, 0, 0, 0, 13.44, 0, 11.22, 0, 0, 0, 0, 0, 0, -13.44, 0, 11.305, 0, 0, 0, 0, 0, 0, -13.28, 0, -11.415),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="BoxMesh" id="BoxMesh_a8y0u"]
+size = Vector3(1, 4.83, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jbj1t"]
 albedo_texture = ExtResource("8_trceg")
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_muem4"]
-material = ExtResource("9_eb6dy")
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jbj1t"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ld40"]
-albedo_texture = ExtResource("13_jkv2x")
 
 [node name="Node3D" type="Node3D"]
 
@@ -114,7 +109,7 @@ environment = SubResource("Environment_1bvp3")
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09006, 0)
 collision_layer = 3
 
@@ -151,40 +146,25 @@ weapon_resource = SubResource("Resource_dp3eg")
 radius = 0.026
 material = SubResource("StandardMaterial3D_h2yge")
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-navigation_mesh = SubResource("NavigationMesh_trceg")
+[node name="Enemy" parent="." instance=ExtResource("11_eb6dy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28143, 1.2597, 4.40327)
+speed = 8.0
 
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_trceg")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.999992, 0, 0.000872756, 0, 1, 0, -0.000872756, 0, -0.999992, 13.46, 0, -11.695)
+script = ExtResource("12_trceg")
+time_mult = 5.0
+
+[node name="Spawner" type="MeshInstance3D" parent="Path3D/PathFollow3D"]
+mesh = SubResource("BoxMesh_a8y0u")
+skeleton = NodePath("../../..")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
 material_override = SubResource("StandardMaterial3D_jbj1t")
 use_collision = true
 size = Vector3(26.6736, 0.145, 23.0107)
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("health") groups=["enemies"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28143, 1.2597, 4.40327)
-script = ExtResource("12_jbj1t")
-health = NodePath("health")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
-mesh = SubResource("CapsuleMesh_muem4")
-script = ExtResource("14_muem4")
-
-[node name="EnemyCollision" type="CollisionShape3D" parent="CharacterBody3D"]
-shape = SubResource("CapsuleShape3D_jbj1t")
-
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="CharacterBody3D"]
-
-[node name="health" type="Node" parent="CharacterBody3D"]
-script = ExtResource("9_ya4ey")
-current_health = 100.0
-max_health = 100.0
-
-[node name="PropCube" parent="." instance=ExtResource("12_a8y0u")]
-transform = Transform3D(4.66784, 0, 0, 0, 1.73252, 0, 0, 0, 7.18951, 10.272, 1.0768, 6.75737)
-
-[node name="PropCube2" parent="." instance=ExtResource("12_a8y0u")]
-transform = Transform3D(4.66784, 0, 0, 0, 3.87793, 0, 0, 0, 7.18951, 10.272, 2.17388, -5.84041)
-material_override = SubResource("StandardMaterial3D_0ld40")
-
-[connection signal="health_changed" from="CharacterBody3D/health" to="CharacterBody3D/MeshInstance3D" method="_on_health_health_changed"]
 
 [editable path="Player"]
