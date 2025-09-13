@@ -17,7 +17,6 @@ func _ready() -> void:
 	add_child(tmpmesh)
 	tmpmesh.rotation_degrees.y = 90
 	reload_timer.connect("timeout", reload_weapon)
-	# shoot_timer.connect("timeout", shoot_weapon)
 
 
 func _process(_delta: float):
@@ -37,6 +36,11 @@ func fire_weapon_shooting_timer():
 			fire_reload_weapon_timer()
 		weapon_fired.emit(weapon_resource.knockback)
 		shoot_timer.start()
+		var collider = head_raycast.get_collider()
+		if collider != null and not collider.is_in_group("enemies"):
+			return
+		collider.take_damage(weapon_resource.damage)
+
 	# else:
 	# 	print("can't shoot, cooldown still going")
 

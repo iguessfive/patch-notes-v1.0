@@ -1,11 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bj565xajac335"]
+[gd_scene load_steps=6 format=3 uid="uid://bj565xajac335"]
 
 [ext_resource type="Script" uid="uid://bq5mye34j04f6" path="res://scripts/weapon.gd" id="1_g6nke"]
 [ext_resource type="PackedScene" uid="uid://cxl182ocgxt71" path="res://Meshes/quadrocket.glb" id="2_eespv"]
 [ext_resource type="Script" uid="uid://cfurin55v4u2g" path="res://scripts/weapon_resource.gd" id="3_ggh24"]
 [ext_resource type="PackedScene" uid="uid://bocmrm8uv6is5" path="res://scenes/pickup.tscn" id="4_oro3m"]
-[ext_resource type="Script" uid="uid://cqqsjswdqi60" path="res://addons/health_hitbox_hurtbox/3d/hit_scan_3d/basic_hit_scan_3d.gd" id="5_hhepa"]
-[ext_resource type="Script" uid="uid://hrwhd52e5mkq" path="res://addons/health_hitbox_hurtbox/resources/health_action.gd" id="6_e8rgy"]
 
 [sub_resource type="Resource" id="Resource_choun"]
 script = ExtResource("3_ggh24")
@@ -19,16 +17,8 @@ mesh = ExtResource("2_eespv")
 max_ammo = 4
 metadata/_custom_type_script = "uid://cfurin55v4u2g"
 
-[sub_resource type="Resource" id="Resource_skv3h"]
-script = ExtResource("6_e8rgy")
-affect = 1
-type = 2
-amount = 1
-
-[node name="quadrocket" type="Node3D" node_paths=PackedStringArray("head_raycast", "debug_sphere", "shoot_timer", "reload_timer", "audioStreamPlayer")]
+[node name="quadrocket" type="Node3D" node_paths=PackedStringArray("shoot_timer", "reload_timer", "audioStreamPlayer")]
 script = ExtResource("1_g6nke")
-head_raycast = NodePath("")
-debug_sphere = NodePath("")
 weapon_resource = SubResource("Resource_choun")
 shoot_timer = NodePath("Timer")
 reload_timer = NodePath("Timer2")
@@ -45,11 +35,5 @@ one_shot = true
 one_shot = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-
-[node name="BasicHitScan3D" type="RayCast3D" parent="."]
-collide_with_areas = true
-script = ExtResource("5_hhepa")
-actions = Array[ExtResource("6_e8rgy")]([SubResource("Resource_skv3h")])
-metadata/_custom_type_script = "uid://cqqsjswdqi60"
 
 [editable path="Pickup"]

@@ -2,8 +2,8 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
-const FRICTION = 0.1  # Friction coefficient for ground movement
-const AIR_FRICTION = 0.02  # Friction coefficient for air movement
+const FRICTION = 0.075  # Friction coefficient for ground movement
+const AIR_FRICTION = 0.05  # Friction coefficient for air movement
 @export var head: Node3D
 signal interact_fired
 
@@ -62,4 +62,8 @@ func process_weapon_knockback(knockback_force: float):
 	print("Camera forward: " + str(camera_forward))
 	print("Horizontal knockback: " + str(horizontal_knockback))
 
-	velocity += horizontal_knockback * knockback_force
+	velocity += Vector3(
+		horizontal_knockback.x * knockback_force,
+		horizontal_knockback.y * (knockback_force * .5),
+		horizontal_knockback.z * knockback_force
+	)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bdylj560kr38y"]
+[gd_scene load_steps=23 format=3 uid="uid://bdylj560kr38y"]
 
 [ext_resource type="PackedScene" uid="uid://5ebkyvk05h4r" path="res://scenes/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://27d6ocwepa3d" path="res://shotgun.tscn" id="3_o6xl0"]
@@ -7,10 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bj565xajac335" path="res://quadrocket.tscn" id="4_tipki"]
 [ext_resource type="PackedScene" uid="uid://b82omtm5oqhk4" path="res://Meshes/mac10.glb" id="5_85g3d"]
 [ext_resource type="Script" uid="uid://cfurin55v4u2g" path="res://scripts/weapon_resource.gd" id="6_choun"]
-[ext_resource type="Script" uid="uid://dyxvt8yarxaff" path="res://addons/health_hitbox_hurtbox/3d/hurt_box_3d/basic_hurt_box_3d.gd" id="8_choun"]
 [ext_resource type="Texture2D" uid="uid://wieqjuscswvh" path="res://addons/prototype_mini_bundle/prototype_dark.png" id="8_trceg"]
-[ext_resource type="Script" uid="uid://cobp4qehnuq77" path="res://addons/health_hitbox_hurtbox/resources/health_modifier.gd" id="9_ya4ey"]
-[ext_resource type="Script" uid="uid://dr8bvnfebp76" path="res://addons/health_hitbox_hurtbox/health/health.gd" id="10_eb6dy"]
+[ext_resource type="Script" uid="uid://daeycu1gfn8wy" path="res://scripts/health.gd" id="9_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://0vmntyr615js" path="res://addons/prototype_mini_bundle/prop_cube.tscn" id="12_a8y0u"]
 [ext_resource type="Texture2D" uid="uid://dj7d77ksm7a6t" path="res://addons/prototype_mini_bundle/prototype_blue.png" id="13_jkv2x"]
 
@@ -61,23 +59,9 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jbj1t"]
 albedo_texture = ExtResource("8_trceg")
 
-[sub_resource type="Resource" id="Resource_muem4"]
-script = ExtResource("9_ya4ey")
-incrementer = 0
-multiplier = 1.0
-convert_affect = 0
-convert_type = 0
-
-[sub_resource type="Resource" id="Resource_dp3eg"]
-script = ExtResource("9_ya4ey")
-incrementer = 0
-multiplier = 1.0
-convert_affect = 0
-convert_type = 0
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_muem4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jbj1t"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_muem4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ld40"]
 albedo_texture = ExtResource("13_jkv2x")
@@ -138,22 +122,6 @@ size = Vector3(26.6736, 0.145, 23.0107)
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28143, 1.2597, 4.40327)
 
-[node name="BasicHurtBox3D" type="Area3D" parent="CharacterBody3D" node_paths=PackedStringArray("health")]
-script = ExtResource("8_choun")
-health = NodePath("Health")
-modifiers = Dictionary[int, ExtResource("9_ya4ey")]({
-1: SubResource("Resource_muem4"),
-2: SubResource("Resource_dp3eg")
-})
-metadata/_custom_type_script = "uid://dyxvt8yarxaff"
-
-[node name="Health" type="Node" parent="CharacterBody3D/BasicHurtBox3D"]
-script = ExtResource("10_eb6dy")
-metadata/_custom_type_script = "uid://dr8bvnfebp76"
-
-[node name="HurtBox" type="CollisionShape3D" parent="CharacterBody3D/BasicHurtBox3D"]
-shape = SubResource("CapsuleShape3D_jbj1t")
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
 mesh = SubResource("CapsuleMesh_muem4")
 
@@ -161,6 +129,9 @@ mesh = SubResource("CapsuleMesh_muem4")
 shape = SubResource("CapsuleShape3D_jbj1t")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="CharacterBody3D"]
+
+[node name="Node" type="Node" parent="CharacterBody3D"]
+script = ExtResource("9_ya4ey")
 
 [node name="PropCube" parent="." instance=ExtResource("12_a8y0u")]
 transform = Transform3D(4.66784, 0, 0, 0, 1.73252, 0, 0, 0, 7.18951, 10.272, 1.0768, 6.75737)

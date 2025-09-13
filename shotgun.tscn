@@ -17,10 +17,8 @@ mesh = ExtResource("2_gda1h")
 max_ammo = 2
 metadata/_custom_type_script = "uid://cfurin55v4u2g"
 
-[node name="Shotgun" type="Node3D" node_paths=PackedStringArray("head_raycast", "debug_sphere", "shoot_timer", "reload_timer", "audioStreamPlayer")]
+[node name="Shotgun" type="Node3D" node_paths=PackedStringArray("shoot_timer", "reload_timer", "audioStreamPlayer")]
 script = ExtResource("1_a8mn3")
-head_raycast = NodePath("")
-debug_sphere = NodePath("")
 weapon_resource = SubResource("Resource_85g3d")
 shoot_timer = NodePath("Timer")
 reload_timer = NodePath("Timer2")
