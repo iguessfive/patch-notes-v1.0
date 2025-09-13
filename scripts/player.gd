@@ -2,9 +2,8 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
-var mouse_sensitivity: float = 0.01
-@export var vertical_look_limit: float = 0.01
-@export var camera_x_rotation: float
+const FRICTION = 0.1  # Friction coefficient for ground movement
+const AIR_FRICTION = 0.02  # Friction coefficient for air movement
 @export var head: Node3D
 signal interact_fired
 
@@ -18,35 +17,30 @@ func _process(_delta):
 		interact_fired.emit()
 
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		rotate_y(-event.relative.x * mouse_sensitivity)
-		camera_x_rotation += -event.relative.y * mouse_sensitivity
-		camera_x_rotation = clamp(
-			camera_x_rotation, deg_to_rad(-vertical_look_limit), deg_to_rad(vertical_look_limit)
-		)
-		head.rotation.x = camera_x_rotation
-
-
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
+	var input_dir := Input.get_vector("left", "right", "forward", "backward")
+	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		# Apply air friction
+		velocity.x *= (1.0 - AIR_FRICTION)
+		velocity.z *= (1.0 - AIR_FRICTION)
+	else:
+		# Apply ground friction when not pressing movement keys
+		if input_dir.length() < 0.1:  # No input detected
+			velocity.x *= (1.0 - FRICTION)
+			velocity.z *= (1.0 - FRICTION)
+		else:
+			# Reset friction when moving
+			velocity.x = direction.x * SPEED
+			velocity.z = direction.z * SPEED
 
-	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir := Input.get_vector("left", "right", "forward", "backward")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
 
@@ -55,6 +49,17 @@ func connect_weapon_knockback(pickup: Node3D):
 	pickup.connect("weapon_fired", process_weapon_knockback)
 
 
-func process_weapon_knockback(knockback: float):
-	var backward_vector_local = head.transform.basis.z * knockback
-	velocity += backward_vector_local
+func process_weapon_knockback(knockback_force: float):
+	# Get camera's actual forward direction (includes head rotation)
+	var camera = head.get_node("Camera3D")
+	var camera_forward = -camera.global_transform.basis.z
+
+	# Project onto horizontal plane (remove Y component but keep direction)
+	var horizontal_knockback = -(
+		Vector3(camera_forward.x, camera_forward.y, camera_forward.z).normalized()
+	)
+
+	print("Camera forward: " + str(camera_forward))
+	print("Horizontal knockback: " + str(horizontal_knockback))
+
+	velocity += horizontal_knockback * knockback_force

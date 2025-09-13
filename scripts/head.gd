@@ -1,17 +1,28 @@
 extends Node3D
 
 @export var camera: Camera3D
-@export var mouse_sensitivity: float
-@export var x_clamp_bounds: float
+@export var mouse_sensitivity: float = 0.01
+@export var vertical_look_limit: float = 90.0
+@export var player_body: CharacterBody3D
+
+var camera_x_rotation: float
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		camera.rotate_y(-event.relative.x * mouse_sensitivity)
-		camera.rotate_x(-event.relative.y * mouse_sensitivity)
-		camera.rotation.x = clampf(camera.rotation.x, -x_clamp_bounds, x_clamp_bounds)
+	if not event is InputEventMouseMotion:
+		return
+
+	var mouse_motion = event as InputEventMouseMotion
+
+	player_body.rotate_y(-mouse_motion.relative.x * mouse_sensitivity)
+
+	camera_x_rotation += -mouse_motion.relative.y * mouse_sensitivity
+	camera_x_rotation = clamp(
+		camera_x_rotation, deg_to_rad(-vertical_look_limit), deg_to_rad(vertical_look_limit)
+	)
+
+	rotation.x = camera_x_rotation
