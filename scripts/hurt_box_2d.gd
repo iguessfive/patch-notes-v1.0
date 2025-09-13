@@ -11,6 +11,8 @@ const BIT_MOB := 1 << 1
 @export_flags("player", "mob") var target: int = BIT_MOB: set = set_target
 
 func _init() -> void:
+	set_source(source)
+	set_target(target)
 	area_entered.connect(func(area: Area2D) -> void:
 		if area is HitBox2D:
 			hurt.emit(area)

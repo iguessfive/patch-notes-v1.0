@@ -7,12 +7,15 @@ signal hit(hurt_box: HurtBox2D)
 const BIT_PLAYER := 1 << 0
 const BIT_MOB := 1 << 1
 
-@export var effect_value: int = 0
+@export var effect_value: int
 
 @export_flags("player", "mob") var source: int = BIT_PLAYER: set = set_source
 @export_flags("player", "mob") var target: int = BIT_MOB: set = set_target
 
 func _init() -> void:
+	set_source(source)
+	set_target(target)
+	
 	area_entered.connect(func(area: Area2D) -> void:
 		if area is HurtBox2D:
 			hit.emit(area)

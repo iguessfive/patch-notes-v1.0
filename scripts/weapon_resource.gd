@@ -2,9 +2,10 @@ extends Resource
 
 @export var bullet_speed: float = 1000.0 # pixels per second
 @export var fire_rate: float = 1.0 # bullet per second
+@export var damage: int = 1
+@export var attack_range: float = 1000.0 # pixels
 
 # @export var reload_time: float
-# @export var damage: float
 # @export var spread: float
 # @export var recoil: float
 # @export var knockback: float

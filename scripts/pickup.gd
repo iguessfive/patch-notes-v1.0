@@ -1,8 +1,8 @@
 extends Area2D
 
-@export var item: Script
+@export var item: Script # defined behaviour of item
 
-var item_obj
+var item_obj: Node
 
 func _init() -> void:
 	add_to_group("items")
@@ -10,12 +10,11 @@ func _init() -> void:
 func _ready() -> void:
 	item_obj = item.new()
 
-	visible = true
 	var sprite: Sprite2D = get_node("Sprite2D")
-	sprite.modulate = item_obj.data.color # placeholder instead of texture
+	sprite.modulate = item_obj.resource.color # placeholder for texture
 
 func get_item_obj() -> Node2D:
-	destroy() # availible to send obj?
+	destroy() 
 	return item_obj
 
 func destroy() -> void:
