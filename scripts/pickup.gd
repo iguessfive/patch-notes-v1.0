@@ -8,10 +8,10 @@ func _init() -> void:
 	add_to_group("items")
 	
 func _ready() -> void:
-	item_obj = item.new()
-
-	var sprite: Sprite2D = get_node("Sprite2D")
-	sprite.modulate = item_obj.resource.color # placeholder for texture
+	if item:
+		item_obj = item.new()
+		var sprite: Sprite2D = get_node("Sprite2D")
+		sprite.modulate = item_obj.resource.color # placeholder for texture
 
 func get_item_obj() -> Node2D:
 	destroy() 

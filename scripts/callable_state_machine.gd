@@ -3,25 +3,27 @@ class_name CallableStateMachine extends RefCounted
 enum {
 	ENTER,
 	UPDATE,
+	UPDATE_PHYSICS,
 	EXIT
 }
 
 var state_collection: Dictionary[Variant, Dictionary] = {}
-var active_state: Variant
+var state_active: Variant
 
 func add_state(
 	state_name: Variant,
 	enter_state_callable: Callable,
 	update_state_callable: Callable,
+	update_physics_state_callable: Callable,
 	exit_state_callable: Callable
 ) -> void:
 	var state_data: Dictionary[int, Callable] = {
 		ENTER: enter_state_callable,
 		UPDATE: update_state_callable,
+		UPDATE_PHYSICS: update_physics_state_callable,
 		EXIT: exit_state_callable
 	}
 	state_collection[state_name] = state_data
-
 
 func set_initial_state(state_name: Variant) -> void:
 	if state_collection.has(state_name):
@@ -29,14 +31,23 @@ func set_initial_state(state_name: Variant) -> void:
 	else:
 		push_warning("No state with name " + state_name)
 
-
-func update() -> void:
+@warning_ignore("unused_parameter")
+func update(delta: float) -> void:
 	if (
-		active_state != null
-		and state_collection.has(active_state)
-		and state_collection[active_state][UPDATE] != Callable()
+		state_active != null
+		and state_collection.has(state_active)
+		and state_collection[state_active][UPDATE] != Callable()
 	):
-		(state_collection[active_state][UPDATE]).call()
+		(state_collection[state_active][UPDATE]).call(delta)
+
+@warning_ignore("unused_parameter")
+func update_physics(delta: float) -> void:
+	if (
+		state_active != null
+		and state_collection.has(state_active)
+		and state_collection[state_active][UPDATE_PHYSICS] != Callable()
+	):
+		(state_collection[state_active][UPDATE_PHYSICS]).call(delta)
 
 
 func change_state(state_name: Variant) -> void:
@@ -48,13 +59,13 @@ func change_state(state_name: Variant) -> void:
 
 # Internal
 func _set_state(state_name: Variant) -> void:
-	if active_state != null:
-		var exit_callable = state_collection[active_state][EXIT]
+	if state_active != null:
+		var exit_callable = state_collection[state_active][EXIT]
 		if !exit_callable.is_null():
 			exit_callable.call()
 	
-	active_state = state_name
+	state_active = state_name
 	
-	var enter_callable = state_collection[active_state][ENTER]
+	var enter_callable = state_collection[state_active][ENTER]
 	if !enter_callable.is_null():
 		enter_callable.call()

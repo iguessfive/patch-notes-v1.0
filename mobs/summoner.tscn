@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://crp6jm73dlaar"]
+
+[ext_resource type="Texture2D" uid="uid://cu2ab7bp1uxvh" path="res://assets/white_1x1.png" id="1_ckv8v"]
+[ext_resource type="Script" uid="uid://dusbfshhlreyh" path="res://scripts/hurt_box_2d.gd" id="1_une1m"]
+[ext_resource type="Script" uid="uid://dr7gyd5f6twvk" path="res://mobs/summoner.gd" id="1_uqluu"]
+[ext_resource type="PackedScene" uid="uid://cpjsa0h1bibif" path="res://mobs/chaser.tscn" id="2_yj6xq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uqluu"]
+size = Vector2(80, 80)
+
+[node name="Summoner" type="CharacterBody2D" node_paths=PackedStringArray("hurt_box")]
+script = ExtResource("1_uqluu")
+summon_mob = ExtResource("2_yj6xq")
+hurt_box = NodePath("HurtBox2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.333333, 0.768627, 0.364706, 1)
+scale = Vector2(80, 80)
+texture = ExtResource("1_ckv8v")
+
+[node name="HurtBox2D" type="Area2D" parent="."]
+collision_mask = 2
+script = ExtResource("1_une1m")
+metadata/_custom_type_script = "uid://dusbfshhlreyh"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox2D"]
+shape = SubResource("RectangleShape2D_uqluu")
