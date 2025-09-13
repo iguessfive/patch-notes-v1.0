@@ -2,13 +2,14 @@ extends Node
 
 signal health_changed(currentHealth: int, maxHealth: int)
 
-var current_health: int
-var max_health: int
+@export var current_health: float
+@export var max_health: float
 
 
 func take_damage(damage: int):
 	current_health -= damage
 	health_changed.emit(current_health, max_health)
+	print("damage taken : " + str(damage))
 
 
 func heal(value: int):

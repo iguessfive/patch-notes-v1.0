@@ -21,8 +21,8 @@ mesh = SubResource("CapsuleMesh_ig7tw")
 [node name="Camera3D" type="Camera3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.307545, 0)
 
-[node name="GunMountPoint" type="Node3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55827, 0, -1.22469)
+[node name="MountPoint" type="Node3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.426694, -0.307545, -1.58971)
 
 [node name="RayCast3D" type="RayCast3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.286215, 0)

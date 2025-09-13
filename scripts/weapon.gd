@@ -6,6 +6,7 @@ extends Node3D
 @export var shoot_timer: Timer
 @export var reload_timer: Timer
 @export var audioStreamPlayer: AudioStreamPlayer3D
+@export var recoil: ProceduralRecoil
 var mesh: PackedScene
 var current_ammo: int
 signal weapon_fired(knockback)
@@ -14,7 +15,7 @@ signal weapon_fired(knockback)
 func _ready() -> void:
 	init_weapon(weapon_resource)
 	var tmpmesh = mesh.instantiate()
-	add_child(tmpmesh)
+	recoil.add_child(tmpmesh)
 	tmpmesh.rotation_degrees.y = 90
 	reload_timer.connect("timeout", reload_weapon)
 
@@ -37,7 +38,8 @@ func fire_weapon_shooting_timer():
 		weapon_fired.emit(weapon_resource.knockback)
 		shoot_timer.start()
 		var collider = head_raycast.get_collider()
-		if collider != null and not collider.is_in_group("enemies"):
+		recoil.recoilFire()
+		if collider == null or not collider.is_in_group("enemies"):
 			return
 		collider.take_damage(weapon_resource.damage)
 
@@ -60,15 +62,19 @@ func init_weapon(resource: WeaponResource):
 	current_ammo = resource.max_ammo
 	shoot_timer.wait_time = resource.fire_rate
 	reload_timer.wait_time = resource.reload_time
+	recoil.snappiness = resource.snappiness
+	recoil.returnSpeed = resource.return_speed
+	recoil.recoil = resource.recoil
 	$Pickup.connect("picked_up", picked_up)
 
 
 func picked_up(body: Node3D):
 	if body.name == "Player":
 		# move to the players gun point and parent ourselves to that.
-		var mountpoint = body.get_node_or_null("Head/GunMountPoint")
+		var mountpoint = body.get_node_or_null("Head/Camera3D/MountPoint")
 		if mountpoint == null:
 			push_error("something is wrong where is your gunpoint")
+
 		position = Vector3.ZERO
 		call_deferred("reparent", mountpoint, false)
 		body.connect_weapon_knockback(self)
