@@ -7,7 +7,6 @@ extends Node3D
 
 var camera_x_rotation: float
 
-
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 

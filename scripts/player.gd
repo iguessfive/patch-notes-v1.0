@@ -1,21 +1,33 @@
 extends CharacterBody3D
 
+signal interact_fired
+
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const FRICTION = 0.075  # Friction coefficient for ground movement
 const AIR_FRICTION = 0.05  # Friction coefficient for air movement
-@export var head: Node3D
-signal interact_fired
 
+@export var head: Node3D
+
+var tab_pressed: bool = false # can be used for paused state
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MouseMode.MOUSE_MODE_CAPTURED
 
+	if not InputMap.has_action("esc_window"):
+		InputMap.add_action("esc_window")
+		var event = InputEventKey.new()
+		event.physical_keycode = KEY_TAB
+		InputMap.action_add_event("esc_window", event)
 
 func _process(_delta):
 	if Input.is_action_just_pressed("interact"):
 		interact_fired.emit()
 
+	if Input.is_action_just_pressed("esc_window"):
+			tab_pressed = not tab_pressed
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if tab_pressed else Input.MouseMode.MOUSE_MODE_CAPTURED
+			head.set_process_unhandled_input(not tab_pressed)
 
 func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("left", "right", "forward", "backward")

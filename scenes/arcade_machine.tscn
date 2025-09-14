@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=4 uid="uid://cs4at84k36mcg"]
 
 [ext_resource type="Script" uid="uid://4xcxube3m4xe" path="res://scripts/arcade_machine.gd" id="1_qykip"]
-[ext_resource type="PackedScene" uid="uid://ddyxb652jax2q" path="res://2d_arcade/main.tscn" id="2_8oa32"]
+[ext_resource type="PackedScene" uid="uid://ddyxb652jax2q" path="res://arcade_game/main.tscn" id="2_8oa32"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k6ohs"]
 resource_name = "Material-body"
