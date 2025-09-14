@@ -3,7 +3,7 @@ extends CharacterBody3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const FRICTION = 0.075  # Friction coefficient for ground movement
-const AIR_FRICTION = 0.05  # Friction coefficient for air movement
+const AIR_FRICTION = 0.001  # Friction coefficient for air movement
 @export var head: Node3D
 signal interact_fired
 
