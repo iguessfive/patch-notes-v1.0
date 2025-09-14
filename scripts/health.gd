@@ -10,7 +10,7 @@ signal died
 func take_damage(damage: int):
 	current_health -= damage
 	health_changed.emit(current_health, max_health)
-	print("damage taken : " + str(damage))
+	print(self.name + " damage taken : " + str(damage))
 	if current_health <= 0:
 		died.emit()
 

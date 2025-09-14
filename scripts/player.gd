@@ -71,8 +71,8 @@ func process_weapon_knockback(knockback_force: float):
 		Vector3(camera_forward.x, camera_forward.y, camera_forward.z).normalized()
 	)
 
-	print("Camera forward: " + str(camera_forward))
-	print("Horizontal knockback: " + str(horizontal_knockback))
+	# print("Camera forward: " + str(camera_forward))
+	# print("Horizontal knockback: " + str(horizontal_knockback))
 
 	velocity += Vector3(
 		horizontal_knockback.x * knockback_force,
