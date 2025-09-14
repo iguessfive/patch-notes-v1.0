@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b2vvmrt4vn61d"
-path.s3tc="res://.godot/imported/board_billmat_normal.png-8a8dee53ef340c91276a62b07c796366.s3tc.ctex"
+path.s3tc="res://.godot/imported/board_billmat_normal.png-41b68c8548ce4693e719b92424995b5d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://meshes/board_billmat_normal.png"
-dest_files=["res://.godot/imported/board_billmat_normal.png-8a8dee53ef340c91276a62b07c796366.s3tc.ctex"]
+source_file="res://Meshes/board_billmat_normal.png"
+dest_files=["res://.godot/imported/board_billmat_normal.png-41b68c8548ce4693e719b92424995b5d.s3tc.ctex"]
 
 [params]
 

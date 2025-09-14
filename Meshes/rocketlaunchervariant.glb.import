@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dgraqvo56b4qu"
-path="res://.godot/imported/rocketlaunchervariant.glb-45e67398f46e3abdc0f124fcc0facc0e.scn"
+path="res://.godot/imported/rocketlaunchervariant.glb-bbaedf295868390d70dcfd4b33cf31de.scn"
 
 [deps]
 
-source_file="res://meshes/rocketlaunchervariant.glb"
-dest_files=["res://.godot/imported/rocketlaunchervariant.glb-45e67398f46e3abdc0f124fcc0facc0e.scn"]
+source_file="res://Meshes/rocketlaunchervariant.glb"
+dest_files=["res://.godot/imported/rocketlaunchervariant.glb-bbaedf295868390d70dcfd4b33cf31de.scn"]
 
 [params]
 

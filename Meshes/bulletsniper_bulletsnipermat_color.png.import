@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bc6tal0ka1vlo"
-path.s3tc="res://.godot/imported/bulletsniper_bulletsnipermat_color.png-b8fdbbbfb4b5d49a2039ab7218caa0b0.s3tc.ctex"
+path.s3tc="res://.godot/imported/bulletsniper_bulletsnipermat_color.png-1b6fb713dc88be68e5c3de82d3576e83.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://meshes/bulletsniper_bulletsnipermat_color.png"
-dest_files=["res://.godot/imported/bulletsniper_bulletsnipermat_color.png-b8fdbbbfb4b5d49a2039ab7218caa0b0.s3tc.ctex"]
+source_file="res://Meshes/bulletsniper_bulletsnipermat_color.png"
+dest_files=["res://.godot/imported/bulletsniper_bulletsnipermat_color.png-1b6fb713dc88be68e5c3de82d3576e83.s3tc.ctex"]
 
 [params]
 

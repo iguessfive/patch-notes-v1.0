@@ -2,30 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uq0acuo5um73"
-path.s3tc="res://.godot/imported/ak47_akmat_1.png-fddb9225037f937675e33df6c89e7ffe.s3tc.ctex"
+uid="uid://bxoaahqvvfec7"
+path="res://.godot/imported/icon.png-1619afe2ee7c0c2435a97b0f8e9eb01f.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
-}
-generator_parameters={
-"md5": "fe95ba70898b55b9bb26cf83aa3c0341"
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Meshes/ak47_akmat_1.png"
-dest_files=["res://.godot/imported/ak47_akmat_1.png-fddb9225037f937675e33df6c89e7ffe.s3tc.ctex"]
+source_file="res://addons/customizable-crosshair-lite/icon.png"
+dest_files=["res://.godot/imported/icon.png-1619afe2ee7c0c2435a97b0f8e9eb01f.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -35,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

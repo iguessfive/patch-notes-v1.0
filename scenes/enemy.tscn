@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://d1l6mhwee56gf"]
 
 [ext_resource type="Script" uid="uid://dsijcj845eum2" path="res://scripts/enemy.gd" id="1_iifgy"]
-[ext_resource type="Material" uid="uid://q53ar7qykmp5" path="res://material/liquid_in_mesh.tres" id="2_epg4t"]
+[ext_resource type="Material" uid="uid://q53ar7qykmp5" path="res://Material/liquid_in_mesh.tres" id="2_epg4t"]
 [ext_resource type="Script" uid="uid://3eyukow4lkwm" path="res://scripts/healthbridge.gd" id="3_3yqyl"]
 [ext_resource type="Script" uid="uid://daeycu1gfn8wy" path="res://scripts/health.gd" id="4_wujgv"]
 

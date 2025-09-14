@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dt1fxsfr7hhn7"
-path.s3tc="res://.godot/imported/bullet1_bulletmat_normal.png-3e9625364fb75fe5942b42b6cbd386d9.s3tc.ctex"
+path.s3tc="res://.godot/imported/bullet1_bulletmat_normal.png-b2f79bc505f80e1a523677a16f72a8aa.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://meshes/bullet1_bulletmat_normal.png"
-dest_files=["res://.godot/imported/bullet1_bulletmat_normal.png-3e9625364fb75fe5942b42b6cbd386d9.s3tc.ctex"]
+source_file="res://Meshes/bullet1_bulletmat_normal.png"
+dest_files=["res://.godot/imported/bullet1_bulletmat_normal.png-b2f79bc505f80e1a523677a16f72a8aa.s3tc.ctex"]
 
 [params]
 

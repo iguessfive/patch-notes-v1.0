@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://brcu81nwyky4a"
-path="res://.godot/imported/flashbang_low.glb-8ad6c6703579228a8c48948868d2344b.scn"
+path="res://.godot/imported/flashbang_low.glb-de582f167a8c91fd89310765d75d3c35.scn"
 
 [deps]
 
-source_file="res://meshes/flashbang_low.glb"
-dest_files=["res://.godot/imported/flashbang_low.glb-8ad6c6703579228a8c48948868d2344b.scn"]
+source_file="res://Meshes/flashbang_low.glb"
+dest_files=["res://.godot/imported/flashbang_low.glb-de582f167a8c91fd89310765d75d3c35.scn"]
 
 [params]
 
