@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d1l6mhwee56gf"]
+[gd_scene load_steps=7 format=3 uid="uid://d1l6mhwee56gf"]
 
 [ext_resource type="Script" uid="uid://dsijcj845eum2" path="res://scripts/enemy.gd" id="1_iifgy"]
 [ext_resource type="Material" uid="uid://q53ar7qykmp5" path="res://Material/liquid_in_mesh.tres" id="2_epg4t"]
@@ -9,9 +9,6 @@
 material = ExtResource("2_epg4t")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jbj1t"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_5uy6h"]
-radius = 2.0
 
 [node name="Enemy" type="CharacterBody3D" node_paths=PackedStringArray("health") groups=["enemies"]]
 script = ExtResource("1_iifgy")
@@ -30,10 +27,5 @@ shape = SubResource("CapsuleShape3D_jbj1t")
 script = ExtResource("4_wujgv")
 current_health = 100.0
 max_health = 100.0
-
-[node name="Area3D" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-shape = SubResource("SphereShape3D_5uy6h")
 
 [connection signal="health_changed" from="health" to="MeshInstance3D" method="_on_health_health_changed"]

@@ -1,5 +1,6 @@
-[gd_scene load_steps=28 format=3 uid="uid://bdylj560kr38y"]
+[gd_scene load_steps=29 format=3 uid="uid://bdylj560kr38y"]
 
+[ext_resource type="Texture2D" uid="uid://dq5wuvxip3k20" path="res://kloppenheim_02_puresky_1k.hdr" id="1_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://5ebkyvk05h4r" path="res://scenes/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://27d6ocwepa3d" path="res://scenes/shotgun.tscn" id="3_o6xl0"]
 [ext_resource type="Script" uid="uid://cgjbs2s15v3kk" path="res://scripts/head.gd" id="3_ya4ey"]
@@ -14,12 +15,12 @@
 [ext_resource type="PackedScene" uid="uid://d1l6mhwee56gf" path="res://scenes/enemy.tscn" id="11_eb6dy"]
 [ext_resource type="Script" uid="uid://b5lm8coo5klll" path="res://scripts/spawner.gd" id="12_trceg"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
-sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
-ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_jkv2x"]
+panorama = ExtResource("1_a8y0u")
+energy_multiplier = 0.2
 
 [sub_resource type="Sky" id="Sky_h2yge"]
-sky_material = SubResource("ProceduralSkyMaterial_0xm2m")
+sky_material = SubResource("PanoramaSkyMaterial_jkv2x")
 
 [sub_resource type="Environment" id="Environment_1bvp3"]
 background_mode = 2
