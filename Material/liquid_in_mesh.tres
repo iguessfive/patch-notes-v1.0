@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=8 format=3 uid="uid://q53ar7qykmp5"]
 
-[ext_resource type="Shader" uid="uid://bx713740abek4" path="res://Shader/liquid_in_mesh.gdshader" id="1_p1gmv"]
+[ext_resource type="Shader" uid="uid://bx713740abek4" path="res://shader/liquid_in_mesh.gdshader" id="1_p1gmv"]
 
 [sub_resource type="Gradient" id="Gradient_rg6hb"]
 

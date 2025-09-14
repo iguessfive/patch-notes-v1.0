@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://plc7bfuy7rfc"]
 
-[ext_resource type="Script" uid="uid://bq5mye34j04f6" path="res://scripts/weapon.gd" id="1_78vgs"]
+[ext_resource type="Script" uid="uid://fg16phduvm3d" path="res://scripts/weapon.gd" id="1_78vgs"]
 [ext_resource type="PackedScene" uid="uid://b82omtm5oqhk4" path="res://Meshes/mac10.glb" id="2_onp47"]
-[ext_resource type="Script" uid="uid://cfurin55v4u2g" path="res://scripts/weapon_resource.gd" id="3_a4mtk"]
+[ext_resource type="Script" uid="uid://fvo5d4tmrwux" path="res://scripts/weapon_resource.gd" id="3_a4mtk"]
 [ext_resource type="PackedScene" uid="uid://bocmrm8uv6is5" path="res://scenes/pickup.tscn" id="4_31i3s"]
 [ext_resource type="Script" uid="uid://dg51kpn30tbpn" path="res://addons/procedural-recoil/recoil.gd" id="5_f60ox"]
 
@@ -20,10 +20,8 @@ return_speed = 0.0
 mesh = ExtResource("2_onp47")
 metadata/_custom_type_script = "uid://cfurin55v4u2g"
 
-[node name="pistol" type="Node3D" node_paths=PackedStringArray("head_raycast", "debug_sphere", "shoot_timer", "reload_timer", "audioStreamPlayer", "recoil")]
+[node name="pistol" type="Node3D" node_paths=PackedStringArray("shoot_timer", "reload_timer", "audioStreamPlayer", "recoil")]
 script = ExtResource("1_78vgs")
-head_raycast = NodePath("")
-debug_sphere = NodePath("")
 weapon_resource = SubResource("Resource_ya4ey")
 shoot_timer = NodePath("Timer")
 reload_timer = NodePath("Timer2")
