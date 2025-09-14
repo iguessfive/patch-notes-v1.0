@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cu7d6xrfl0skb"
-path="res://.godot/imported/ammobox_low.glb-4304e5c8a4df3fa7845a532c918a9458.scn"
+path="res://.godot/imported/ammobox_low.glb-c38d2cddfdc08d8c636036c84db96185.scn"
 
 [deps]
 
-source_file="res://meshes/ammobox_low.glb"
-dest_files=["res://.godot/imported/ammobox_low.glb-4304e5c8a4df3fa7845a532c918a9458.scn"]
+source_file="res://Meshes/ammobox_low.glb"
+dest_files=["res://.godot/imported/ammobox_low.glb-c38d2cddfdc08d8c636036c84db96185.scn"]
 
 [params]
 

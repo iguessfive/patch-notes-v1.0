@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://csnm0lxwobxi8"
-path="res://.godot/imported/nadevariant_low.glb-8a47d9b9535d98615c1b1868c0af9adc.scn"
+path="res://.godot/imported/nadevariant_low.glb-99b2c2fdaf69bd790728edcb66cf1531.scn"
 
 [deps]
 
-source_file="res://meshes/nadevariant_low.glb"
-dest_files=["res://.godot/imported/nadevariant_low.glb-8a47d9b9535d98615c1b1868c0af9adc.scn"]
+source_file="res://Meshes/nadevariant_low.glb"
+dest_files=["res://.godot/imported/nadevariant_low.glb-99b2c2fdaf69bd790728edcb66cf1531.scn"]
 
 [params]
 

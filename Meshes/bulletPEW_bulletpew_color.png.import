@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://sdec8ytixyeg"
-path.s3tc="res://.godot/imported/bulletPEW_bulletpew_color.png-e3207bad4828cfc59d60a01a411a0f7a.s3tc.ctex"
+path.s3tc="res://.godot/imported/bulletPEW_bulletpew_color.png-325bc27dcd7151245c7b44b9607ecad6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://meshes/bulletPEW_bulletpew_color.png"
-dest_files=["res://.godot/imported/bulletPEW_bulletpew_color.png-e3207bad4828cfc59d60a01a411a0f7a.s3tc.ctex"]
+source_file="res://Meshes/bulletPEW_bulletpew_color.png"
+dest_files=["res://.godot/imported/bulletPEW_bulletpew_color.png-325bc27dcd7151245c7b44b9607ecad6.s3tc.ctex"]
 
 [params]
 
