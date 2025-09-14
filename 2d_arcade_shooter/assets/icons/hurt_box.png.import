@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b18y1ku8tfqb2"
-path="res://.godot/imported/texture_02_normal.png-b97bff8d5ca7e036003a9c23fe377abd.ctex"
+uid="uid://b0eeimap1t1p0"
+path="res://.godot/imported/hurt_box.png-b06644518f6f5325757aa32a3aabcbb1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture_02_normal.png"
-dest_files=["res://.godot/imported/texture_02_normal.png-b97bff8d5ca7e036003a9c23fe377abd.ctex"]
+source_file="res://assets/icons/hurt_box.png"
+dest_files=["res://.godot/imported/hurt_box.png-b06644518f6f5325757aa32a3aabcbb1.ctex"]
 
 [params]
 
