@@ -1,18 +1,59 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1l6mhwee56gf"]
+[gd_scene load_steps=14 format=3 uid="uid://d1l6mhwee56gf"]
 
 [ext_resource type="Script" uid="uid://dsijcj845eum2" path="res://scripts/enemy.gd" id="1_iifgy"]
-[ext_resource type="Material" uid="uid://q53ar7qykmp5" path="res://Material/liquid_in_mesh.tres" id="2_epg4t"]
+[ext_resource type="Shader" uid="uid://bx713740abek4" path="res://Shader/liquid_in_mesh.gdshader" id="2_5uy6h"]
 [ext_resource type="Script" uid="uid://3eyukow4lkwm" path="res://scripts/healthbridge.gd" id="3_3yqyl"]
 [ext_resource type="Script" uid="uid://daeycu1gfn8wy" path="res://scripts/health.gd" id="4_wujgv"]
 
+[sub_resource type="Gradient" id="Gradient_rg6hb"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0xm5l"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_iq3ky"]
+color_ramp = SubResource("Gradient_rg6hb")
+noise = SubResource("FastNoiseLite_0xm5l")
+
+[sub_resource type="Gradient" id="Gradient_x082k"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5olv6"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jc645"]
+color_ramp = SubResource("Gradient_x082k")
+noise = SubResource("FastNoiseLite_5olv6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c4w8v"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_5uy6h")
+shader_parameter/coeff = Vector2(0, 0)
+shader_parameter/vel = 0.0
+shader_parameter/liquid_color = Color(0.777985, 0, 0.323676, 1)
+shader_parameter/foam_color = Color(0.996895, 0.643731, 0.729064, 1)
+shader_parameter/foam_line = 0.2
+shader_parameter/fill_amount = 0.64
+shader_parameter/size = Vector2(1, 1)
+shader_parameter/glass_thickness = 0.02
+shader_parameter/scale = 1.0
+shader_parameter/wave_intensity = 0.05
+shader_parameter/waves_noise = SubResource("NoiseTexture2D_jc645")
+shader_parameter/HasBubbles = true
+shader_parameter/AlwaysBubbles = true
+shader_parameter/BubbleStrength = 0.5
+shader_parameter/BubbleMask = 0.5
+shader_parameter/BubbleSpeed = Vector2(3, 3)
+shader_parameter/bubbles_tex = SubResource("NoiseTexture2D_iq3ky")
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_muem4"]
-material = ExtResource("2_epg4t")
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_c4w8v")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jbj1t"]
 
 [node name="Enemy" type="CharacterBody3D" node_paths=PackedStringArray("health") groups=["enemies"]]
 script = ExtResource("1_iifgy")
 health = NodePath("health")
+speed = 6.0
+homing_interval = 0.25
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_muem4")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://bdylj560kr38y"]
+[gd_scene load_steps=49 format=4 uid="uid://bdylj560kr38y"]
 
 [ext_resource type="PackedScene" uid="uid://5ebkyvk05h4r" path="res://scenes/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://27d6ocwepa3d" path="res://scenes/shotgun.tscn" id="3_o6xl0"]
@@ -11,8 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://plc7bfuy7rfc" path="res://scenes/pistol.tscn" id="7_trceg"]
 [ext_resource type="PackedScene" uid="uid://b71quq7ek2x6v" path="res://scenes/mac_10.tscn" id="8_a8y0u"]
 [ext_resource type="Texture2D" uid="uid://wieqjuscswvh" path="res://addons/prototype_mini_bundle/prototype_dark.png" id="8_trceg"]
+[ext_resource type="PackedScene" uid="uid://d1l6mhwee56gf" path="res://scenes/enemy.tscn" id="12_jkv2x"]
 [ext_resource type="Script" uid="uid://b5lm8coo5klll" path="res://scripts/spawner.gd" id="12_trceg"]
 [ext_resource type="Script" uid="uid://4xcxube3m4xe" path="res://scripts/arcade_machine.gd" id="13_a8y0u"]
+[ext_resource type="Script" uid="uid://htyk44mwo0im" path="res://addons/customizable-crosshair-lite/crosshair.gd" id="14_a8y0u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -29,9 +31,9 @@ glow_enabled = true
 
 [sub_resource type="Resource" id="Resource_a8y0u"]
 script = ExtResource("6_choun")
-fire_rate = 3.0
+fire_rate = 0.5
 reload_time = 2.0
-damage = 10.0
+damage = 100.0
 knockback = 20.0
 max_ammo = 2
 spread = 0.0
@@ -93,6 +95,21 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0)
 }
 point_count = 4
+
+[sub_resource type="Curve" id="Curve_a8y0u"]
+_data = [Vector2(0, 0.5), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Curve" id="Curve_jkv2x"]
+_limits = [0.0, 1000.0, 0.0, 50.0]
+bake_resolution = 1
+_data = [Vector2(0, 5), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Curve" id="Curve_jbj1t"]
+_limits = [0.0, 50.0, 0.0, 50.0]
+_data = [Vector2(0, 5), 0.0, 0.0, 0, 0]
+point_count = 1
 
 [sub_resource type="BoxMesh" id="BoxMesh_a8y0u"]
 size = Vector3(1, 4.83, 1)
@@ -389,7 +406,12 @@ curve = SubResource("Curve3D_trceg")
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
 transform = Transform3D(-0.999992, 0, 0.000872756, 0, 1, 0, -0.000872756, 0, -0.999992, 13.46, 0, -11.695)
 script = ExtResource("12_trceg")
-time_mult = 5.0
+spawn_interval_by_round = SubResource("Curve_a8y0u")
+points_available_by_round = SubResource("Curve_jkv2x")
+time_mult_by_round = SubResource("Curve_jbj1t")
+current_round = 1
+points_per_spawn = 1
+enemy = ExtResource("12_jkv2x")
 
 [node name="Spawner" type="MeshInstance3D" parent="Path3D/PathFollow3D"]
 mesh = SubResource("BoxMesh_a8y0u")
@@ -442,5 +464,24 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
+
+[node name="Crosshair" type="Control" parent="Control"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("14_a8y0u")
+crosshairThickness = 1.22
+crosshairSize = 4.0
+crosshairGap = 1.0
+crosshairColor = Color(1, 1, 1, 1)
+metadata/_custom_type_script = "uid://htyk44mwo0im"
 
 [editable path="Player"]
