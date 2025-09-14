@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpjsa0h1bibif"]
+
+[ext_resource type="Script" uid="uid://ckhpee70utkig" path="res://2d_arcade/mobs/chaser.gd" id="1_muin1"]
+[ext_resource type="Texture2D" uid="uid://cu2ab7bp1uxvh" path="res://2d_arcade/assets/white_1x1.png" id="2_8ocsd"]
+[ext_resource type="Script" uid="uid://dusbfshhlreyh" path="res://2d_arcade/scripts/hurt_box_2d.gd" id="3_eefbr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vw27"]
+size = Vector2(62, 62)
+
+[node name="Chaser" type="CharacterBody2D" node_paths=PackedStringArray("hurt_box")]
+script = ExtResource("1_muin1")
+hurt_box = NodePath("HurtBox2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0, 1)
+scale = Vector2(64, 64)
+texture = ExtResource("2_8ocsd")
+metadata/_edit_lock_ = true
+
+[node name="HurtBox2D" type="Area2D" parent="."]
+collision_layer = 2
+script = ExtResource("3_eefbr")
+source = 2
+target = 1
+metadata/_custom_type_script = "uid://dusbfshhlreyh"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox2D"]
+shape = SubResource("RectangleShape2D_5vw27")

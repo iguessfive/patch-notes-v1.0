@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://ddyxb652jax2q"]
+
+[ext_resource type="Script" uid="uid://cj0ulsldv2dco" path="res://2d_arcade/scripts/player.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://crp6jm73dlaar" path="res://2d_arcade/mobs/summoner.tscn" id="1_272bh"]
+[ext_resource type="Texture2D" uid="uid://cu2ab7bp1uxvh" path="res://2d_arcade/assets/white_1x1.png" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://mlpawikwxc4e" path="res://2d_arcade/scripts/item_manager.gd" id="3_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://cpjsa0h1bibif" path="res://2d_arcade/mobs/chaser.tscn" id="4_7mycd"]
+[ext_resource type="PackedScene" uid="uid://brekvrl65k65t" path="res://2d_arcade/scenes/pickup.tscn" id="5_7mycd"]
+[ext_resource type="Script" uid="uid://bqni57kmj7n82" path="res://2d_arcade/scripts/weapon.gd" id="5_272bh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lquwl"]
+radius = 32.0156
+
+[node name="Main" type="Node2D"]
+
+[node name="Summoner" parent="." instance=ExtResource("1_272bh")]
+position = Vector2(40, 40)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(488, 275)
+script = ExtResource("1_0xm2m")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+scale = Vector2(64, 64)
+texture = ExtResource("1_ig7tw")
+
+[node name="ItemManager" type="Area2D" parent="Player"]
+script = ExtResource("3_1bvp3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/ItemManager"]
+shape = SubResource("CircleShape2D_lquwl")
+
+[node name="ItemContainer" type="Node2D" parent="Player/ItemManager"]
+position = Vector2(4, 0)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+enabled = false
+
+[node name="Chaser" parent="." instance=ExtResource("4_7mycd")]
+position = Vector2(383, 442)
+
+[node name="Pickup" parent="." instance=ExtResource("5_7mycd")]
+position = Vector2(660, 258)
+item = ExtResource("5_272bh")
