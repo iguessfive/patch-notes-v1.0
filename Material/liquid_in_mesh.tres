@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=8 format=3 uid="uid://q53ar7qykmp5"]
 
-[ext_resource type="Shader" uid="uid://bx713740abek4" path="res://shader/liquid_in_mesh.gdshader" id="1_p1gmv"]
+[ext_resource type="Shader" uid="uid://bx713740abek4" path="res://shader/liquid_in_mesh.gdshader" id="1_iojap"]
 
 [sub_resource type="Gradient" id="Gradient_rg6hb"]
 
@@ -20,7 +20,7 @@ noise = SubResource("FastNoiseLite_5olv6")
 
 [resource]
 render_priority = 0
-shader = ExtResource("1_p1gmv")
+shader = ExtResource("1_iojap")
 shader_parameter/coeff = Vector2(0, 0)
 shader_parameter/vel = 0.0
 shader_parameter/liquid_color = Color(0.777985, 0, 0.323676, 1)

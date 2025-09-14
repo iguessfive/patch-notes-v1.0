@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cq4w1icvtre7f"
-path.s3tc="res://.godot/imported/smoke_low_smokemat_color.png-578901d31a55f2e23927d7eb70c86031.s3tc.ctex"
+path.s3tc="res://.godot/imported/smoke_low_smokemat_color.png-e94f0bc84af52d77f5718d6668c12f76.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Meshes/smoke_low_smokemat_color.png"
-dest_files=["res://.godot/imported/smoke_low_smokemat_color.png-578901d31a55f2e23927d7eb70c86031.s3tc.ctex"]
+source_file="res://meshes/smoke_low_smokemat_color.png"
+dest_files=["res://.godot/imported/smoke_low_smokemat_color.png-e94f0bc84af52d77f5718d6668c12f76.s3tc.ctex"]
 
 [params]
 

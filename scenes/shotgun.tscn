@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://27d6ocwepa3d"]
 
 [ext_resource type="Script" uid="uid://fg16phduvm3d" path="res://scripts/weapon.gd" id="1_a8mn3"]
-[ext_resource type="PackedScene" uid="uid://fl2uu18m7th1" path="res://Meshes/shotgun.glb" id="2_gda1h"]
+[ext_resource type="PackedScene" uid="uid://fl2uu18m7th1" path="res://meshes/shotgun.glb" id="2_gda1h"]
 [ext_resource type="Script" uid="uid://fvo5d4tmrwux" path="res://scripts/weapon_resource.gd" id="3_qvfgu"]
 [ext_resource type="PackedScene" uid="uid://bocmrm8uv6is5" path="res://scenes/pickup.tscn" id="4_c2moy"]
 [ext_resource type="Script" uid="uid://dg51kpn30tbpn" path="res://addons/procedural-recoil/recoil.gd" id="5_gda1h"]

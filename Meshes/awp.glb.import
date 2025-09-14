@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cpy5e3r6o8au2"
-path="res://.godot/imported/awp.glb-616d1bdb2a6d401da4f7c75862d88609.scn"
+path="res://.godot/imported/awp.glb-650d332c0f9a56af4e0e3e41a2467919.scn"
 
 [deps]
 
-source_file="res://Meshes/awp.glb"
-dest_files=["res://.godot/imported/awp.glb-616d1bdb2a6d401da4f7c75862d88609.scn"]
+source_file="res://meshes/awp.glb"
+dest_files=["res://.godot/imported/awp.glb-650d332c0f9a56af4e0e3e41a2467919.scn"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cr5dq8vjnyiqh"
-path="res://.godot/imported/nade_low.glb-4e0abcf1b74df965e0da8bc5b3a61891.scn"
+path="res://.godot/imported/nade_low.glb-6b6e29d4e22952dca78c91f6bdd51109.scn"
 
 [deps]
 
-source_file="res://Meshes/nade_low.glb"
-dest_files=["res://.godot/imported/nade_low.glb-4e0abcf1b74df965e0da8bc5b3a61891.scn"]
+source_file="res://meshes/nade_low.glb"
+dest_files=["res://.godot/imported/nade_low.glb-6b6e29d4e22952dca78c91f6bdd51109.scn"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c8dxb58yykiw3"
-path="res://.godot/imported/incendiary_low.glb-9fa847694349b59ec17b4dc378df52dc.scn"
+path="res://.godot/imported/incendiary_low.glb-e938d4f8e6dd8ecd6b79a64e15ff4b62.scn"
 
 [deps]
 
-source_file="res://Meshes/incendiary_low.glb"
-dest_files=["res://.godot/imported/incendiary_low.glb-9fa847694349b59ec17b4dc378df52dc.scn"]
+source_file="res://meshes/incendiary_low.glb"
+dest_files=["res://.godot/imported/incendiary_low.glb-e938d4f8e6dd8ecd6b79a64e15ff4b62.scn"]
 
 [params]
 

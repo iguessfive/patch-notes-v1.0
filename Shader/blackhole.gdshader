@@ -39,7 +39,7 @@ vec4 sample_portal_texture(vec2 uv, sampler2D tex, float time_val, float rot_spe
 
     vec4 color_cw = texture(tex, polar_uv_cw);
     vec4 color_ccw = texture(tex, polar_uv_ccw);
-    
+
     return mix(color_cw, color_ccw, 0.5);
 }
 
@@ -47,27 +47,27 @@ void fragment() {
     // Sample transparency mask
     vec4 transparency_sample = texture(transparency_mask, vertex_uv);
     float alpha_mask = transparency_sample.a;
-    
+
     // Portal texture sampling with rotation
     vec4 portal_sample = sample_portal_texture(vertex_uv, portal_texture, TIME, rotation_speed, scale);
-    
+
     // Calculate distance from center for portal effects
     vec2 centered_uv = vertex_uv - vec2(0.5);
     float dist = length(centered_uv);
-    
+
     // Use portal texture directly for color
     float grayscale = portal_sample.r;
-    
+
     // Portal alpha calculations (simplified)
     float portal_alpha = smoothstep(scale, 0.0, dist);
-    
+
     // Sample emission mask (preserving original blackhole functionality)
     vec4 emission_sample = texture(emission_mask, vertex_uv);
     vec3 emission_data = emission_sample.rgb;
-    
+
     // Combine portal emission with emission mask
     vec3 final_emission = emission_data * grayscale * emission_strength;
-    
+
     // Set material properties
     ALBEDO = vec3(0.0, 0.0, 0.0); // Keep black albedo for blackhole effect
     ALPHA = portal_alpha * alpha_mask;

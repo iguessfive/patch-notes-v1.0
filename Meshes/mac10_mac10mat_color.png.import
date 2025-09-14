@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dvm01n83rd2tl"
-path.s3tc="res://.godot/imported/mac10_mac10mat_color.png-15b98b0fcd850d61202043d60a5342f2.s3tc.ctex"
+path.s3tc="res://.godot/imported/mac10_mac10mat_color.png-c2f90327356101e99aae7ade0aee3913.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Meshes/mac10_mac10mat_color.png"
-dest_files=["res://.godot/imported/mac10_mac10mat_color.png-15b98b0fcd850d61202043d60a5342f2.s3tc.ctex"]
+source_file="res://meshes/mac10_mac10mat_color.png"
+dest_files=["res://.godot/imported/mac10_mac10mat_color.png-c2f90327356101e99aae7ade0aee3913.s3tc.ctex"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dnxgq8vdt4gqj"
-path="res://.godot/imported/bulletsniper.glb-7e57ffc22826c38f10f90e4c146c5649.scn"
+path="res://.godot/imported/bulletsniper.glb-355d89a05e3be9664aa504c5f9a37572.scn"
 
 [deps]
 
-source_file="res://Meshes/bulletsniper.glb"
-dest_files=["res://.godot/imported/bulletsniper.glb-7e57ffc22826c38f10f90e4c146c5649.scn"]
+source_file="res://meshes/bulletsniper.glb"
+dest_files=["res://.godot/imported/bulletsniper.glb-355d89a05e3be9664aa504c5f9a37572.scn"]
 
 [params]
 

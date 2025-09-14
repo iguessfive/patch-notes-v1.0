@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://jdku7quxxx6a"
-path="res://.godot/imported/rocketlaucher.glb-d9e632008bf3a0a704516f3f142fed68.scn"
+path="res://.godot/imported/rocketlaucher.glb-cf8e5b2422b08180592f5f0383690d90.scn"
 
 [deps]
 
-source_file="res://Meshes/rocketlaucher.glb"
-dest_files=["res://.godot/imported/rocketlaucher.glb-d9e632008bf3a0a704516f3f142fed68.scn"]
+source_file="res://meshes/rocketlaucher.glb"
+dest_files=["res://.godot/imported/rocketlaucher.glb-cf8e5b2422b08180592f5f0383690d90.scn"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://birn81dlgp0xh"
-path="res://.godot/imported/bulletPEW.glb-5d3d8b5471e1b557e0fca428959de49c.scn"
+path="res://.godot/imported/bulletPEW.glb-acb63947d671eb46674217b0d3e013c6.scn"
 
 [deps]
 
-source_file="res://Meshes/bulletPEW.glb"
-dest_files=["res://.godot/imported/bulletPEW.glb-5d3d8b5471e1b557e0fca428959de49c.scn"]
+source_file="res://meshes/bulletPEW.glb"
+dest_files=["res://.godot/imported/bulletPEW.glb-acb63947d671eb46674217b0d3e013c6.scn"]
 
 [params]
 

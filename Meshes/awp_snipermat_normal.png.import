@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bcgol312nqwxl"
-path.s3tc="res://.godot/imported/awp_snipermat_normal.png-16733be212457c9de748432fb88af48d.s3tc.ctex"
+path.s3tc="res://.godot/imported/awp_snipermat_normal.png-53331f3685442b9335f52ab673edf673.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Meshes/awp_snipermat_normal.png"
-dest_files=["res://.godot/imported/awp_snipermat_normal.png-16733be212457c9de748432fb88af48d.s3tc.ctex"]
+source_file="res://meshes/awp_snipermat_normal.png"
+dest_files=["res://.godot/imported/awp_snipermat_normal.png-53331f3685442b9335f52ab673edf673.s3tc.ctex"]
 
 [params]
 
