@@ -3,7 +3,7 @@ class_name Type extends Resource
 
 const SUB_FOLDER = "2d_arcade"
 
-const Player = preload("res://%s/scripts/player.gd" % SUB_FOLDER)
+const Player2D = preload("res://%s/scripts/player.gd" % SUB_FOLDER)
 const PickUp = preload("res://%s/scripts/pickup.gd" % SUB_FOLDER)
 const Weapon = preload("res://%s/scripts/weapon.gd" % SUB_FOLDER)
 const Bullet = preload("res://%s/scripts/bullet.gd" % SUB_FOLDER)

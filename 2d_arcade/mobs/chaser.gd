@@ -16,7 +16,7 @@ func _on_chase_enter() -> void:
 
 @warning_ignore("unused_parameter")
 func _on_chase_update(delta: float) -> void:
-	var player = get_tree().get_first_node_in_group("player_2d")
+	var player = get_tree().get_first_node_in_group("player_2d") #WARNING: gets top player ref in group every frame
 	if player:
 		var direction = (player.global_position - global_position).normalized()
 		velocity = direction * mob_resource.speed_movement

@@ -23,7 +23,7 @@ func _on_area_entered(body: Node) -> void:
 		item_container.add_child(item_obj)
 		item_obj.holder = get_parent()
 
-		var radius: float = randi_range(50, 100)
+		var radius: float = randi_range(40, 70)
 		for idx in item_container.get_child_count():
 			var item := item_container.get_child(idx)
 			var count := item_container.get_child_count()

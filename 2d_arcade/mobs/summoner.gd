@@ -8,11 +8,11 @@ enum State {
 @export var summon_cooldown: float = 2.0
 @export var summon_mob: PackedScene
 
-var distance_width := 500.0
+var distance_width := 600.0
 var distance_height := 300.0
 var speed_movement := PI/5 # radians per seconds
 
-var _orbit_angle := 0.0
+var orbit_angle := 0.0
 
 @onready var summon_radius: float = $Sprite2D.scale.length() #PLACEHOLDER dimensions of texture
 @onready var orbit_center: Vector2 = get_viewport().size * 0.5
@@ -26,9 +26,8 @@ func _ready() -> void:
 	hurt_box.hurt.connect(on_hurt)
 
 func _on_orbit_update(delta: float) -> void:
-	_orbit_angle += speed_movement * delta
-	var reduced_orbit_angle = fmod(_orbit_angle, TAU)
-	var offset = Vector2((cos(reduced_orbit_angle) * distance_width),  (sin(reduced_orbit_angle) * distance_height))
+	orbit_angle += speed_movement * delta
+	var offset = Vector2((cos(fmod(orbit_angle, TAU)) * distance_width),  (sin(fmod(orbit_angle, TAU)) * distance_height))
 	global_position = orbit_center + offset
 
 func _on_summon_enter() -> void:
@@ -47,7 +46,7 @@ func destroy() -> void:
 	queue_free()
 
 func summon() -> void:
-	var player: Type.Player = get_tree().get_first_node_in_group("player_2d")
+	var player: Type.Player2D = get_tree().get_first_node_in_group("player_2d")
 	if not player:
 		return
 
