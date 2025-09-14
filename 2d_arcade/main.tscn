@@ -13,9 +13,6 @@ radius = 32.0156
 
 [node name="Main" type="Node2D"]
 
-[node name="Summoner" parent="." instance=ExtResource("1_272bh")]
-position = Vector2(40, 40)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -10
 
@@ -53,3 +50,7 @@ position = Vector2(383, 442)
 [node name="Pickup" parent="." instance=ExtResource("5_7mycd")]
 position = Vector2(660, 258)
 item = ExtResource("5_272bh")
+
+[node name="Summoner" parent="." instance=ExtResource("1_272bh")]
+position = Vector2(734.138, 600.233)
+rotation = 3.13024
