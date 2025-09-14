@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var hurt_box: HurtBox2D
+@export var hit_box: HitBox2D
 
 var mob_resource := Type.MobResource.new()
 var state_machine = CallableStateMachine.new()

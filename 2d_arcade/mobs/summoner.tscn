@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://crp6jm73dlaar"]
+[gd_scene load_steps=15 format=3 uid="uid://crp6jm73dlaar"]
 
 [ext_resource type="Texture2D" uid="uid://cu2ab7bp1uxvh" path="res://2d_arcade/assets/white_1x1.png" id="1_ckv8v"]
 [ext_resource type="Script" uid="uid://dusbfshhlreyh" path="res://2d_arcade/scripts/hurt_box_2d.gd" id="1_une1m"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cpjsa0h1bibif" path="res://2d_arcade/mobs/chaser.tscn" id="2_yj6xq"]
 [ext_resource type="Texture2D" uid="uid://bur4fq1gwmqrr" path="res://2d_arcade/mobs/sprites/summoner.png" id="4_njw8x"]
 [ext_resource type="Script" uid="uid://o1lob2dlwpv7" path="res://2d_arcade/mobs/summoner_sprite.gd" id="5_6sl1w"]
+[ext_resource type="Script" uid="uid://clckohu8uowgi" path="res://2d_arcade/scripts/hit_box_2d.gd" id="7_6tscm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_njw8x"]
 atlas = ExtResource("4_njw8x")
@@ -47,6 +48,10 @@ animations = [{
 radius = 29.0
 height = 92.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6nthm"]
+radius = 26.0
+height = 88.0
+
 [node name="Summoner" type="CharacterBody2D" node_paths=PackedStringArray("hurt_box")]
 script = ExtResource("1_uqluu")
 summon_mob = ExtResource("2_yj6xq")
@@ -75,3 +80,12 @@ metadata/_custom_type_script = "uid://dusbfshhlreyh"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox2D"]
 position = Vector2(1, -40)
 shape = SubResource("CapsuleShape2D_njw8x")
+
+[node name="HitBox2D" type="Area2D" parent="."]
+collision_mask = 2
+script = ExtResource("7_6tscm")
+metadata/_custom_type_script = "uid://clckohu8uowgi"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox2D"]
+position = Vector2(1, -40)
+shape = SubResource("CapsuleShape2D_6nthm")
