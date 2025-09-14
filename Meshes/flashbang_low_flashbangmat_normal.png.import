@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bvm0ske30cum"
-path.s3tc="res://.godot/imported/flashbang_low_flashbangmat_normal.png-a00ad5ef69ac8198bbb3ab91bf054054.s3tc.ctex"
+path.s3tc="res://.godot/imported/flashbang_low_flashbangmat_normal.png-cba1842d69181b85cd75873e48fb30e7.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Meshes/flashbang_low_flashbangmat_normal.png"
-dest_files=["res://.godot/imported/flashbang_low_flashbangmat_normal.png-a00ad5ef69ac8198bbb3ab91bf054054.s3tc.ctex"]
+source_file="res://meshes/flashbang_low_flashbangmat_normal.png"
+dest_files=["res://.godot/imported/flashbang_low_flashbangmat_normal.png-cba1842d69181b85cd75873e48fb30e7.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2l45fe0t5jmk"
-path.s3tc="res://.godot/imported/rocketlaunchervariant_rocketmatalt_low_color.png-2b439bab4faee35b190082921ee7ab3a.s3tc.ctex"
+path.s3tc="res://.godot/imported/rocketlaunchervariant_rocketmatalt_low_color.png-9e25ed02db3683c047f759a148d643dc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Meshes/rocketlaunchervariant_rocketmatalt_low_color.png"
-dest_files=["res://.godot/imported/rocketlaunchervariant_rocketmatalt_low_color.png-2b439bab4faee35b190082921ee7ab3a.s3tc.ctex"]
+source_file="res://meshes/rocketlaunchervariant_rocketmatalt_low_color.png"
+dest_files=["res://.godot/imported/rocketlaunchervariant_rocketmatalt_low_color.png-9e25ed02db3683c047f759a148d643dc.s3tc.ctex"]
 
 [params]
 

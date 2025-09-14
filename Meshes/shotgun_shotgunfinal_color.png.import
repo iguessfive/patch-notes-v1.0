@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dimt2sfoyia38"
-path.s3tc="res://.godot/imported/shotgun_shotgunfinal_color.png-8e542b270f9bf5576458a002d9476bf1.s3tc.ctex"
+path.s3tc="res://.godot/imported/shotgun_shotgunfinal_color.png-912669b16237116b3b471ec18832b6d1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Meshes/shotgun_shotgunfinal_color.png"
-dest_files=["res://.godot/imported/shotgun_shotgunfinal_color.png-8e542b270f9bf5576458a002d9476bf1.s3tc.ctex"]
+source_file="res://meshes/shotgun_shotgunfinal_color.png"
+dest_files=["res://.godot/imported/shotgun_shotgunfinal_color.png-912669b16237116b3b471ec18832b6d1.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bbmw7f7dhq8jn"
-path.s3tc="res://.godot/imported/pew_pewfinal_normal.png-43b67edf9d43e838eacd86cd020f7df9.s3tc.ctex"
+path.s3tc="res://.godot/imported/pew_pewfinal_normal.png-9f39bb2aba48ebe2d2880ce599731f92.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Meshes/pew_pewfinal_normal.png"
-dest_files=["res://.godot/imported/pew_pewfinal_normal.png-43b67edf9d43e838eacd86cd020f7df9.s3tc.ctex"]
+source_file="res://meshes/pew_pewfinal_normal.png"
+dest_files=["res://.godot/imported/pew_pewfinal_normal.png-9f39bb2aba48ebe2d2880ce599731f92.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c030cie54vrjs"
-path.s3tc="res://.godot/imported/incendiary_low_incendiarymat_color.png-289afb5443f190c8c33a44eaae8c2127.s3tc.ctex"
+path.s3tc="res://.godot/imported/incendiary_low_incendiarymat_color.png-d82bd012d98cf8d8ecb197a567271ca6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Meshes/incendiary_low_incendiarymat_color.png"
-dest_files=["res://.godot/imported/incendiary_low_incendiarymat_color.png-289afb5443f190c8c33a44eaae8c2127.s3tc.ctex"]
+source_file="res://meshes/incendiary_low_incendiarymat_color.png"
+dest_files=["res://.godot/imported/incendiary_low_incendiarymat_color.png-d82bd012d98cf8d8ecb197a567271ca6.s3tc.ctex"]
 
 [params]
 

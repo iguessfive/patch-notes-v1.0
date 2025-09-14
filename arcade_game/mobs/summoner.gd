@@ -7,6 +7,7 @@ enum State {
 
 @export var summon_cooldown: float = 2.0
 @export var summon_mob: PackedScene
+@export var summon_max: int = 5
 
 var distance_width := 600.0
 var distance_height := 300.0
@@ -33,11 +34,11 @@ func init_resource() -> void:
 
 func _on_orbit_update(delta: float) -> void:
 	orbit_angle += speed_movement * delta
-	var offset = Vector2((cos(fmod(orbit_angle, TAU)) * distance_width),  (sin(fmod(orbit_angle, TAU)) * distance_height))
+	var offset = Vector2((-cos(fmod(orbit_angle, TAU)) * distance_width),  (-sin(fmod(orbit_angle, TAU)) * distance_height))
 	global_position = orbit_center + offset
 
 func _on_summon_enter() -> void:
-	summon()
+	get_tree().create_timer(0.1).timeout.connect(summon)
 	state_machine.change_state(State.ORBIT)
 	get_tree().create_timer(summon_cooldown).timeout.connect(state_machine.change_state.bind(State.SUMMON))
 
@@ -55,12 +56,23 @@ func summon() -> void:
 	var player: Type.Player2D = get_tree().get_first_node_in_group("player_2d")
 	if not player:
 		return
+	
+	if tracker.count_summoned >= summon_max:
+		print("yep no more mobs")
+		return
 
 	var mob: Type.Mob = summon_mob.instantiate()
 	get_tree().current_scene.add_child.call_deferred(mob)
-	tracker.count += 1
-	mob.name = "Chaser%d" % tracker.count
+	tracker.count_summoned += 1
+	mob.name = "Chaser%d" % tracker.count_summoned
 
 	var direction_to_player = global_position.direction_to(player.global_position)
 	var summon_angle := direction_to_player.angle()
 	mob.global_position = global_position + Vector2(cos(summon_angle), sin(summon_angle)) * summon_radius
+
+	mob.tree_exited.connect(func() -> void:
+		tracker.count_killed += 1
+		if tracker.count_killed == summon_max:
+			get_tree().change_scene_to_file(ScenePath.Shooter3D)
+		print(tracker.count_killed)
+	)

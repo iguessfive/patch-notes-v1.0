@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://caahd4ctkbhkh"
-path.s3tc="res://.godot/imported/ak47variant_akmat_1.png-25b7df5120292be65534c23ca73fec71.s3tc.ctex"
+path.s3tc="res://.godot/imported/ak47variant_akmat_1.png-15a1046960bcf9a29d9c68beed7dbc52.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Meshes/ak47variant_akmat_1.png"
-dest_files=["res://.godot/imported/ak47variant_akmat_1.png-25b7df5120292be65534c23ca73fec71.s3tc.ctex"]
+source_file="res://meshes/ak47variant_akmat_1.png"
+dest_files=["res://.godot/imported/ak47variant_akmat_1.png-15a1046960bcf9a29d9c68beed7dbc52.s3tc.ctex"]
 
 [params]
 

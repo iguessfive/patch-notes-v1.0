@@ -2,12 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://5ebkyvk05h4r" path="res://scenes/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://27d6ocwepa3d" path="res://scenes/shotgun.tscn" id="3_o6xl0"]
-[ext_resource type="Script" uid="uid://cgjbs2s15v3kk" path="res://scripts/head.gd" id="3_ya4ey"]
-[ext_resource type="PackedScene" uid="uid://fl2uu18m7th1" path="res://Meshes/shotgun.glb" id="4_choun"]
+[ext_resource type="Script" uid="uid://5cp2iuy367yr" path="res://scripts/head.gd" id="3_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://fl2uu18m7th1" path="res://meshes/shotgun.glb" id="4_choun"]
 [ext_resource type="PackedScene" uid="uid://bj565xajac335" path="res://scenes/quadrocket.tscn" id="4_tipki"]
-[ext_resource type="PackedScene" uid="uid://b82omtm5oqhk4" path="res://Meshes/mac10.glb" id="5_85g3d"]
+[ext_resource type="PackedScene" uid="uid://b82omtm5oqhk4" path="res://meshes/mac10.glb" id="5_85g3d"]
 [ext_resource type="Script" uid="uid://fvo5d4tmrwux" path="res://scripts/weapon_resource.gd" id="6_choun"]
-[ext_resource type="PackedScene" uid="uid://cxl182ocgxt71" path="res://Meshes/quadrocket.glb" id="7_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://cxl182ocgxt71" path="res://meshes/quadrocket.glb" id="7_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://plc7bfuy7rfc" path="res://scenes/pistol.tscn" id="7_trceg"]
 [ext_resource type="PackedScene" uid="uid://b71quq7ek2x6v" path="res://scenes/mac_10.tscn" id="8_a8y0u"]
 [ext_resource type="Texture2D" uid="uid://wieqjuscswvh" path="res://addons/prototype_mini_bundle/prototype_dark.png" id="8_trceg"]
@@ -462,6 +462,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.79847, 0)
 visible = false
 billboard = 1
 text = "Press E"
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15

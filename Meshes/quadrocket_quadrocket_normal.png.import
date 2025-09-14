@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b56h0avn646gw"
-path.s3tc="res://.godot/imported/quadrocket_quadrocket_normal.png-a857727b3114dbd37835b34c96f44a68.s3tc.ctex"
+path.s3tc="res://.godot/imported/quadrocket_quadrocket_normal.png-5209f83355377607b54bf79ec62468e5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Meshes/quadrocket_quadrocket_normal.png"
-dest_files=["res://.godot/imported/quadrocket_quadrocket_normal.png-a857727b3114dbd37835b34c96f44a68.s3tc.ctex"]
+source_file="res://meshes/quadrocket_quadrocket_normal.png"
+dest_files=["res://.godot/imported/quadrocket_quadrocket_normal.png-5209f83355377607b54bf79ec62468e5.s3tc.ctex"]
 
 [params]
 
