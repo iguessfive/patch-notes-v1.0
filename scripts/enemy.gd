@@ -18,7 +18,7 @@ func take_damage(value: int):
 
 
 func _ready() -> void:
-	player = get_tree().get_first_node_in_group("player")
+	player = get_tree().get_first_node_in_group("player") # 
 
 	# Connect health death signal to our own died signal
 	if health.has_method("connect"):

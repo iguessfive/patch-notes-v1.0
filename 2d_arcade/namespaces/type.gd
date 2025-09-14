@@ -11,3 +11,6 @@ const Mob = preload("res://%s/scripts/mob.gd" % SUB_FOLDER)
 
 const WeaponResource2D = preload("res://%s/scripts/weapon_resource.gd" % SUB_FOLDER)
 const MobResource = preload("res://%s/scripts/mob_resource.gd" % SUB_FOLDER)
+
+
+const Player3D = preload("res://scripts/player.gd")

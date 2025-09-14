@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 func _init() -> void:
-	add_to_group("player")
+	add_to_group("player_2d")
 
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:

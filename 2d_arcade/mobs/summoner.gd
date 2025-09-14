@@ -44,7 +44,7 @@ func destroy() -> void:
 	queue_free()
 
 func summon() -> void:
-	var player: Type.Player = get_tree().get_first_node_in_group("player")
+	var player: Type.Player = get_tree().get_first_node_in_group("player_2d")
 	if not player:
 		return
 
