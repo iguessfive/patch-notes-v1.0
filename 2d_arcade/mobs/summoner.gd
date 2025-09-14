@@ -10,7 +10,7 @@ enum State {
 
 var distance_width := 600.0
 var distance_height := 300.0
-var speed_movement := PI/5 # radians per seconds
+var speed_movement := PI/7 # radians per seconds
 
 var orbit_angle := 0.0
 

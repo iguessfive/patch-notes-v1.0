@@ -1,12 +1,51 @@
-[gd_scene load_steps=6 format=3 uid="uid://crp6jm73dlaar"]
+[gd_scene load_steps=13 format=3 uid="uid://crp6jm73dlaar"]
 
 [ext_resource type="Texture2D" uid="uid://cu2ab7bp1uxvh" path="res://2d_arcade/assets/white_1x1.png" id="1_ckv8v"]
 [ext_resource type="Script" uid="uid://dusbfshhlreyh" path="res://2d_arcade/scripts/hurt_box_2d.gd" id="1_une1m"]
 [ext_resource type="Script" uid="uid://dr7gyd5f6twvk" path="res://2d_arcade/mobs/summoner.gd" id="1_uqluu"]
 [ext_resource type="PackedScene" uid="uid://cpjsa0h1bibif" path="res://2d_arcade/mobs/chaser.tscn" id="2_yj6xq"]
+[ext_resource type="Texture2D" uid="uid://bur4fq1gwmqrr" path="res://2d_arcade/mobs/sprites/summoner.png" id="4_njw8x"]
+[ext_resource type="Script" uid="uid://o1lob2dlwpv7" path="res://2d_arcade/mobs/summoner_sprite.gd" id="5_6sl1w"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uqluu"]
-size = Vector2(80, 80)
+[sub_resource type="AtlasTexture" id="AtlasTexture_njw8x"]
+atlas = ExtResource("4_njw8x")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sl1w"]
+atlas = ExtResource("4_njw8x")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tscm"]
+atlas = ExtResource("4_njw8x")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nthm"]
+atlas = ExtResource("4_njw8x")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mcfcq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njw8x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6sl1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6tscm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6nthm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_njw8x"]
+radius = 29.0
+height = 92.0
 
 [node name="Summoner" type="CharacterBody2D" node_paths=PackedStringArray("hurt_box")]
 script = ExtResource("1_uqluu")
@@ -14,9 +53,19 @@ summon_mob = ExtResource("2_yj6xq")
 hurt_box = NodePath("HurtBox2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.333333, 0.768627, 0.364706, 1)
 scale = Vector2(80, 80)
 texture = ExtResource("1_ckv8v")
+
+[node name="SummonerSprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2, -49)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_mcfcq")
+autoplay = "default"
+frame_progress = 0.766811
+script = ExtResource("5_6sl1w")
 
 [node name="HurtBox2D" type="Area2D" parent="."]
 collision_mask = 2
@@ -24,4 +73,5 @@ script = ExtResource("1_une1m")
 metadata/_custom_type_script = "uid://dusbfshhlreyh"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox2D"]
-shape = SubResource("RectangleShape2D_uqluu")
+position = Vector2(1, -40)
+shape = SubResource("CapsuleShape2D_njw8x")

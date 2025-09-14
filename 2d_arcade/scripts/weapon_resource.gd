@@ -4,6 +4,7 @@ extends Resource
 @export var fire_rate: float = 1.0 # bullet per second
 @export var damage: int = 1
 @export var attack_range: float = 1000.0 # pixels
+@export var texture: Texture = Asset.Visual.PISTOL
 
 # @export var reload_time: float
 # @export var spread: float
@@ -18,7 +19,7 @@ extends Resource
 # @export var shoot_vfx: PackedScene
 
 # ---------- Components ----------
-@export var bullet: PackedScene = preload("res://%s/scenes/bullet.tscn" % Type.SUB_FOLDER)
+@export var bullet: PackedScene = ScenePath.Bullet
 
 # ---------- PLACEHOLDER ----------
 var color: Color = random_color() 

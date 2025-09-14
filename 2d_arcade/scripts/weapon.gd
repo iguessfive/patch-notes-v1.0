@@ -8,9 +8,7 @@ var can_fire: bool = true
 
 func _init() -> void:
 	add_child(sprite)
-	sprite.scale = Vector2(16, 16)
-	sprite.texture = Asset.Visual.white_1x1
-	sprite.modulate = resource.color
+	sprite.texture = Asset.Visual.PISTOL
 
 @warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:
@@ -26,7 +24,7 @@ func _physics_process(delta: float) -> void:
 		bullet.distance_max = resource.attack_range
 
 		bullet.global_position = global_position
-		bullet.sprite.modulate = resource.color
+		# bullet.sprite.modulate = resource.color
 
 		can_fire = false
 		var fire_rate_timer = get_tree().create_timer(resource.fire_rate)

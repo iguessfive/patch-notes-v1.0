@@ -150,6 +150,7 @@ shape = SubResource("CircleShape2D_lquwl")
 [node name="ItemContainer" type="Node2D" parent="Player/ItemManager"]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(2, 0)
 enabled = false
 
 [node name="Chaser" parent="." instance=ExtResource("4_7mycd")]
@@ -160,5 +161,4 @@ position = Vector2(660, 258)
 item = ExtResource("5_272bh")
 
 [node name="Summoner" parent="." instance=ExtResource("1_272bh")]
-position = Vector2(734.138, 600.233)
-rotation = 3.13024
+position = Vector2(163, 150)

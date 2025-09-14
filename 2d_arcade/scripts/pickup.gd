@@ -14,7 +14,7 @@ func _ready() -> void:
 	if item:
 		item_obj = item.new()
 		var sprite: Sprite2D = get_node("Sprite2D")
-		sprite.modulate = item_obj.resource.color # placeholder for texture
+		sprite.texture = item_obj.resource.texture
 
 func get_item_obj() -> Node2D:
 	destroy() 

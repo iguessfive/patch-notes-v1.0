@@ -13,6 +13,11 @@ func _process(delta: float) -> void:
 
 	direction = Vector2(x_dir, y_dir).normalized()
 
+	var viewport_rect := get_viewport_rect()
+	position.x = clamp(position.x, 0, viewport_rect.size.x)
+	position.y = clamp(position.y, 0, viewport_rect.size.y)
+
 	velocity = direction * 200.0
-	
 	move_and_slide()
+
+	
