@@ -364,7 +364,7 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2398, 1.09006, -2.86679)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.50688, 1.09006, -6.87852)
 collision_layer = 3
 
 [node name="Head" parent="Player" index="2" node_paths=PackedStringArray("camera", "player_body")]
