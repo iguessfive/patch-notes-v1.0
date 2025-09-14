@@ -435,4 +435,10 @@ shape = SubResource("BoxShape3D_trceg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.86031, 0)
 shape = SubResource("SphereShape3D_trceg")
 
+[node name="Label3D" type="Label3D" parent="ArcadeMachine"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.79847, 0)
+visible = false
+billboard = 1
+text = "Press E"
+
 [editable path="Player"]

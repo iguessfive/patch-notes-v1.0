@@ -64,7 +64,7 @@ position = Vector2(2, -49)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_mcfcq")
 autoplay = "default"
-frame_progress = 0.766811
+frame_progress = 0.244407
 script = ExtResource("5_6sl1w")
 
 [node name="HurtBox2D" type="Area2D" parent="."]
