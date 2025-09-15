@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://27d6ocwepa3d"]
+
+[ext_resource type="Script" uid="uid://fg16phduvm3d" path="res://scripts/weapon.gd" id="1_a8mn3"]
+[ext_resource type="PackedScene" uid="uid://fl2uu18m7th1" path="res://meshes/shotgun.glb" id="2_gda1h"]
+[ext_resource type="Script" uid="uid://fvo5d4tmrwux" path="res://scripts/weapon_resource.gd" id="3_qvfgu"]
+[ext_resource type="PackedScene" uid="uid://bocmrm8uv6is5" path="res://scenes/pickup.tscn" id="4_c2moy"]
+[ext_resource type="Script" uid="uid://dg51kpn30tbpn" path="res://addons/procedural-recoil/recoil.gd" id="5_gda1h"]
+
+[sub_resource type="Resource" id="Resource_85g3d"]
+script = ExtResource("3_qvfgu")
+fire_rate = 0.75
+reload_time = 2.0
+damage = 0.0
+knockback = 5.0
+max_ammo = 2
+spread = 0.0
+recoil = Vector3(0, 0, 0)
+snappiness = 0.0
+return_speed = 0.0
+mesh = ExtResource("2_gda1h")
+metadata/_custom_type_script = "uid://cfurin55v4u2g"
+
+[node name="Shotgun" type="Node3D" node_paths=PackedStringArray("shoot_timer", "reload_timer", "audioStreamPlayer", "recoil")]
+script = ExtResource("1_a8mn3")
+weapon_resource = SubResource("Resource_85g3d")
+shoot_timer = NodePath("Timer")
+reload_timer = NodePath("Timer2")
+audioStreamPlayer = NodePath("AudioStreamPlayer3D")
+recoil = NodePath("ProceduralRecoil")
+
+[node name="Pickup" parent="." node_paths=PackedStringArray("pickupable_node") instance=ExtResource("4_c2moy")]
+collision_mask = 2
+pickupable_node = NodePath("..")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="."]
+one_shot = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
+[node name="ProceduralRecoil" type="Node3D" parent="."]
+script = ExtResource("5_gda1h")
+metadata/_custom_type_script = "uid://dg51kpn30tbpn"
+
+[editable path="Pickup"]

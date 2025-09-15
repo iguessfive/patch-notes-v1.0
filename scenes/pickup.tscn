@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bocmrm8uv6is5"]
+
+[ext_resource type="Script" uid="uid://bel07goyv63cj" path="res://scripts/pickup.gd" id="1_iqk3k"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0xm2m"]
+radius = 1.566
+
+[node name="Pickup" type="Area3D"]
+script = ExtResource("1_iqk3k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_0xm2m")

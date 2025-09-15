@@ -1,0 +1,211 @@
+[gd_scene load_steps=29 format=3 uid="uid://ddyxb652jax2q"]
+
+[ext_resource type="Script" uid="uid://cj0ulsldv2dco" path="res://arcade_game/scripts/player.gd" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://bkuqcx86v8fon" path="res://arcade_game/scripts/game_controller.gd" id="1_6tpk7"]
+[ext_resource type="PackedScene" uid="uid://crp6jm73dlaar" path="res://arcade_game/mobs/summoner.tscn" id="1_272bh"]
+[ext_resource type="Texture2D" uid="uid://cu2ab7bp1uxvh" path="res://arcade_game/assets/white_1x1.png" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://mlpawikwxc4e" path="res://arcade_game/scripts/item_manager.gd" id="3_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://dadcq3r7dxjv3" path="res://arcade_game/assets/character/idle.png" id="3_jmoag"]
+[ext_resource type="PackedScene" uid="uid://cpjsa0h1bibif" path="res://arcade_game/mobs/chaser.tscn" id="4_7mycd"]
+[ext_resource type="Texture2D" uid="uid://cjmpf6ornq3pg" path="res://arcade_game/assets/character/run.png" id="4_7o6lx"]
+[ext_resource type="Script" uid="uid://d2ejgm3qm6hy8" path="res://arcade_game/scripts/character_sprite.gd" id="4_nr01h"]
+[ext_resource type="PackedScene" uid="uid://brekvrl65k65t" path="res://arcade_game/scenes/pickup.tscn" id="5_7mycd"]
+[ext_resource type="Script" uid="uid://bqni57kmj7n82" path="res://arcade_game/scripts/weapon.gd" id="5_272bh"]
+[ext_resource type="Script" uid="uid://dusbfshhlreyh" path="res://arcade_game/scripts/hurt_box_2d.gd" id="8_nqwjo"]
+[ext_resource type="Texture2D" uid="uid://dn5un6m22kehk" path="res://arcade_game/assets/heart.png" id="12_ti3ct"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nr01h"]
+atlas = ExtResource("3_jmoag")
+region = Rect2(0, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7o6lx"]
+atlas = ExtResource("3_jmoag")
+region = Rect2(80, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tpk7"]
+atlas = ExtResource("3_jmoag")
+region = Rect2(160, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ti3ct"]
+atlas = ExtResource("3_jmoag")
+region = Rect2(240, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqwjo"]
+atlas = ExtResource("4_7o6lx")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpp6g"]
+atlas = ExtResource("4_7o6lx")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_as24w"]
+atlas = ExtResource("4_7o6lx")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibhj0"]
+atlas = ExtResource("4_7o6lx")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugt3l"]
+atlas = ExtResource("4_7o6lx")
+region = Rect2(320, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwcsi"]
+atlas = ExtResource("4_7o6lx")
+region = Rect2(400, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cnnq"]
+atlas = ExtResource("4_7o6lx")
+region = Rect2(480, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_saa03"]
+atlas = ExtResource("4_7o6lx")
+region = Rect2(560, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nqwjo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nr01h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7o6lx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6tpk7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ti3ct")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqwjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpp6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_as24w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibhj0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugt3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwcsi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cnnq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_saa03")
+}],
+"loop": true,
+"name": &"run",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lquwl"]
+radius = 23.0868
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nqwjo"]
+radius = 18.0278
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_6tpk7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Player" type="CharacterBody2D" parent="."]
+texture_filter = 1
+position = Vector2(488, 275)
+script = ExtResource("1_0xm2m")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+visible = false
+scale = Vector2(64, 64)
+texture = ExtResource("1_ig7tw")
+
+[node name="CharacterSprite" type="AnimatedSprite2D" parent="Player"]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_nqwjo")
+animation = &"run"
+autoplay = "idle"
+script = ExtResource("4_nr01h")
+
+[node name="ItemManager" type="Area2D" parent="Player"]
+script = ExtResource("3_1bvp3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/ItemManager"]
+shape = SubResource("CircleShape2D_lquwl")
+
+[node name="ItemContainer" type="Node2D" parent="Player/ItemManager"]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(2, 0)
+enabled = false
+
+[node name="HurtBox2D" type="Area2D" parent="Player"]
+position = Vector2(-1, 3)
+collision_mask = 2
+script = ExtResource("8_nqwjo")
+metadata/_custom_type_script = "uid://dusbfshhlreyh"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/HurtBox2D"]
+shape = SubResource("CircleShape2D_nqwjo")
+
+[node name="UI" type="CanvasLayer" parent="Player"]
+
+[node name="Health" type="HBoxContainer" parent="Player/UI"]
+anchors_preset = -1
+anchor_left = 0.0138889
+anchor_top = 0.0246914
+anchor_right = 0.128472
+anchor_bottom = 0.0756173
+offset_right = -88.0
+offset_bottom = -22.0
+scale = Vector2(3, 3)
+metadata/_edit_use_anchors_ = true
+
+[node name="Heart1" type="TextureRect" parent="Player/UI/Health"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("12_ti3ct")
+stretch_mode = 5
+
+[node name="Heart2" type="TextureRect" parent="Player/UI/Health"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("12_ti3ct")
+stretch_mode = 5
+
+[node name="Heart3" type="TextureRect" parent="Player/UI/Health"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("12_ti3ct")
+stretch_mode = 5
+
+[node name="Chaser" parent="." instance=ExtResource("4_7mycd")]
+position = Vector2(383, 442)
+
+[node name="Pickup" parent="." instance=ExtResource("5_7mycd")]
+position = Vector2(660, 258)
+item = ExtResource("5_272bh")
+
+[node name="Summoner" parent="." instance=ExtResource("1_272bh")]
+position = Vector2(109, 208)
