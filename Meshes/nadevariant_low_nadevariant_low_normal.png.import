@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://1u65e05t5qun"
-path.s3tc="res://.godot/imported/nadevariant_low_nadevariant_low_normal.png-04872ca582bdaba7b930f1b21892dc97.s3tc.ctex"
+path.s3tc="res://.godot/imported/nadevariant_low_nadevariant_low_normal.png-f695742e03b7e2a316055995c64f02d1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://meshes/nadevariant_low_nadevariant_low_normal.png"
-dest_files=["res://.godot/imported/nadevariant_low_nadevariant_low_normal.png-04872ca582bdaba7b930f1b21892dc97.s3tc.ctex"]
+source_file="res://Meshes/nadevariant_low_nadevariant_low_normal.png"
+dest_files=["res://.godot/imported/nadevariant_low_nadevariant_low_normal.png-f695742e03b7e2a316055995c64f02d1.s3tc.ctex"]
 
 [params]
 

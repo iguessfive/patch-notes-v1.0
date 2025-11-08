@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d28ay38ajde1b"
-path="res://.godot/imported/ak47variant.glb-9b3540efc6a04b87ea3644a8ca470bdc.scn"
+path="res://.godot/imported/ak47variant.glb-84a5977e05664ebfbf963959b4cc7fb3.scn"
 
 [deps]
 
-source_file="res://meshes/ak47variant.glb"
-dest_files=["res://.godot/imported/ak47variant.glb-9b3540efc6a04b87ea3644a8ca470bdc.scn"]
+source_file="res://Meshes/ak47variant.glb"
+dest_files=["res://.godot/imported/ak47variant.glb-84a5977e05664ebfbf963959b4cc7fb3.scn"]
 
 [params]
 

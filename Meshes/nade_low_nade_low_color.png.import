@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b4ss7te3dp32p"
-path.s3tc="res://.godot/imported/nade_low_nade_low_color.png-978a029e6e74a27acb3bc97efa6620b1.s3tc.ctex"
+path.s3tc="res://.godot/imported/nade_low_nade_low_color.png-6982bce7d34f33d764bbe89171e46f11.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://meshes/nade_low_nade_low_color.png"
-dest_files=["res://.godot/imported/nade_low_nade_low_color.png-978a029e6e74a27acb3bc97efa6620b1.s3tc.ctex"]
+source_file="res://Meshes/nade_low_nade_low_color.png"
+dest_files=["res://.godot/imported/nade_low_nade_low_color.png-6982bce7d34f33d764bbe89171e46f11.s3tc.ctex"]
 
 [params]
 

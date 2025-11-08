@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgq7kx6togejr"]
+
+[ext_resource type="Script" uid="uid://0cc2iw6h3vij" path="res://squash_and_stretch.gd" id="1_dcp0d"]
+[ext_resource type="Texture2D" uid="uid://cu2ab7bp1uxvh" path="res://arcade_game/assets/white_1x1.png" id="1_sxtkn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o18gv"]
+size = Vector2(64, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dcp0d"]
+size = Vector2(706, 96)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(368, 416)
+script = ExtResource("1_dcp0d")
+
+[node name="Pivot" type="Marker2D" parent="Player"]
+position = Vector2(0, 48)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/Pivot"]
+position = Vector2(0, -48.5625)
+scale = Vector2(62.500008, 94.875015)
+texture = ExtResource("1_sxtkn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_o18gv")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(608, 512)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(703.875, 95.999985)
+texture = ExtResource("1_sxtkn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_dcp0d")
